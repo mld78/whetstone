@@ -14,19 +14,31 @@ Whetstone is a **Node.js** app which uses **express** and **mongoDB**, mediated 
 
 ### Process
 
+When someone arrives at our site, they will see...
+
+![home](readme_assets/home.JPG)
+![signup](readme_assets/signup.JPG)
+![pick-lang](readme_assets/pick-lang.JPG)
+![pick-exercises](readme_assets/pick-exercises.JPG)
+![exercise](readme_assets/exercise.JPG)
+![login](readme_assets/login.JPG)
+
+The general structure of our data...
+
+![erd](readme_assets/erd.png)
+
 Our **minimum viable product** will...
 
 * Be deployed on Heroku, accessible to anyone.
 * Have a sign-up page, which allows anyone to create a secure account.
-* Have at least **five** exercises in **JavaScript**.
+* Have at least **three** exercises in **JavaScript**.
 * Have a profile page, where an authenticated user can see which exercises they have completed.
+* Be able to evaluate 
 * Make exercises accessible to developers via a simple API.
 * Store user information and exercises using mongoDB
 
 Here are links to our [user stories](https://trello.com/b/xufvXcpc/crud-studs-whetstone) and our [pitch deck](https://prezi.com/pibq6kokc1u9/whetstone/?utm_campaign=share&utm_medium=copy).
 
-
-
 ### Next Steps
 
-> Unsolved problems and stretch goals to come.
+> Unsolved problems and planned features to come.
