@@ -17,5 +17,26 @@
   "bugs": {
     "url": "https://github.com/WDI-project-3/whetstone/issues"
   },
-  "homepage": "https://github.com/WDI-project-3/whetstone#readme"
+  "homepage": "https://github.com/WDI-project-3/whetstone#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-ejs-layouts": "^2.2.0",
+    "express-session": "^1.15.1",
+    "method-override": "^2.3.7",
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.9.0",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "request": "^2.81.0",
+    "serve-favicon": "^2.4.1"
+  }
 }
