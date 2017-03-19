@@ -18,7 +18,7 @@ require('dotenv').config()
 var app = express()
 
 // connect to database
-mongoose.connect('mongodb://localhost/whetstone')
+var mongoose = require('./config/database')
 
 // special middle ware
 app.use(morgan('dev')) 
@@ -27,7 +27,7 @@ app.use(bodyParser())
 
 // set up view engine and path
 app.set('view engine', 'ejs')
-app.use(ejsLayouts)
+// app.use(ejsLayouts)
 app.set("views","./views")
 
 // set up public directory path

@@ -2,8 +2,11 @@ var express = require('express'),
 	router  = new express.Router()
 
 // require controllers
+var {index} = require('../controllers/methods_controller')
 
-// set up routes
+// root path
+router.route('/')
+	.get(index)
 
 
 
