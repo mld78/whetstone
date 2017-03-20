@@ -34,14 +34,13 @@ app.set("views","./views")
 app.use(express.static(__dirname + '/public'))
 
 // configure passport
-// app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }))
-// app.use(passport.initialize())
-// app.use(passport.session())
-// app.use(flash())
-// require('./config/passport')(passport)
+app.use(session({ secret: 'Whetstone' }))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
 
 // This middleware will allow us to use the current user in the layout
-require('./config/routes')(passport)
+require('./config/passport')(passport)
 app.use(function (req, res, next) {
   global.user = req.user
   next()
