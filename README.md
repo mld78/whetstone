@@ -42,7 +42,3 @@ Here are links to our [user stories](https://trello.com/b/xufvXcpc/crud-studs-wh
 ### Next Steps
 
 > Unsolved problems and planned features to come.
-
-
-
-Test! by matt
