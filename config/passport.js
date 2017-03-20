@@ -1,21 +1,21 @@
-var LocalStrategy   = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
+var LocalStrategy   = require('passport-local').Strategy
+var FacebookStrategy = require('passport-facebook').Strategy
 // console.log(LocalStrategy.toString())
 
-var User            = require('../models/user');
+var User            = require('../models/user')
 
 // require controllers
 module.exports = function(passport) {
 
 	passport.serializeUser(function(user, done) {
-    done(null, user.id);
-  });
+    done(null, user.id)
+  })
 
   passport.deserializeUser(function(id, callback) {
     User.findById(id, function(err, user) {
-        callback(err, user);
-    });
-  });
+        callback(err, user)
+    })
+  })
 
 
 passport.use('local-signup', new LocalStrategy({
@@ -111,17 +111,16 @@ passport.use('local-signup', new LocalStrategy({
 
 	                   // save our user to the database
 	                   newUser.save(function(err) {
-	                       if (err)
-	                           throw err;
+	                       if (err) throw err
 
 	                       // if successful, return the new user
-	                       return done(null, newUser);
-	                   });
+	                       return done(null, newUser)
+	                   })
 	               }
 
-	           });
-	       });
-	   }));
-	  //  =========================END FACEBOOK=====================================
+	           })
+	       })
+	   }))
+//  =========================END FACEBOOK=====================================
 
 }
