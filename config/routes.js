@@ -5,13 +5,12 @@ var bodyParser = require('body-parser');
 // Used to manipulate POST methods
 var methodOverride = require('method-override');
 var passport = require("passport");
-var usersController = require('../controllers/users_controller');
 
 
 // require controllers
-var {index} = require('../controllers/methods_controller')
-var {index} = require('../controllers/exercises_controller')
-
+var usersController = require('../controllers/users_controller');
+var methodsController = require('../controllers/methods_controller')
+var exercisesController = require('..controllers/exercises_controller')
 
 // root path
 router.get('/', function(req,res){
@@ -36,27 +35,31 @@ router.route('/login')
   .get(usersController.getLogin)
   .post(usersController.postLogin)
 
-router.route("/logout")
+router.route('/logout')
   .get(usersController.getLogout)
 
 	// =====================================
 	// FACEBOOK ROUTES =====================
 	// =====================================
 	// route for facebook authentication and login
-	router.route("/auth/facebook")
+	router.route('/auth/facebook')
 	  .get(usersController.getFacebook)
 
 	// handle the callback after facebook has authenticated the user
-	router.route("/auth/facebook/callback")
+	router.route('/auth/facebook/callback')
 	  .get(usersController.getFacebookCallback)
 
 	// =======END FACEBOOK ROUTES===========
 
-router.route("/secret")
+router.route('/secret')
   .get(authenticateUser, usersController.secret)
 
+// Exercises ROUTES
 
+router.route('/exercises')
+	.get(exercisesController.index)
 
-
+router.route('/exercises/:id')
+	.get(exercisesController.show)
 
 module.exports = router
