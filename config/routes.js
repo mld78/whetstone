@@ -10,6 +10,7 @@ var usersController = require('../controllers/users_controller');
 
 // require controllers
 var {index} = require('../controllers/methods_controller')
+var {index} = require('../controllers/exercises_controller')
 
 
 // root path

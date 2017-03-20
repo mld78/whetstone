@@ -1,13 +1,16 @@
 var mongoose = require('mongoose'),
-	bcrypt   = require('bcrypt-nodejs'),
-	CompletedExercise = mongoose.model('CompletedExercise')
+	bcrypt   = require('bcrypt-nodejs')
+	// CompletedExercise = mongoose.model('CompletedExercise')
 
 // it's possible the name "method" isn't the best, we could
 // consider changing it to function or something.
 var userSchema = new mongoose.Schema({
 	local : {
+    title        : String,
+    name         : String,
 		email        : String,
-		password     : String,
+		password     : String
+
 	},
 	facebook: {
 		id: String,
@@ -15,14 +18,14 @@ var userSchema = new mongoose.Schema({
 		email: String,
 		name: String
 	}
-	completed_exercises: [CompletedExercise.schema]
+	// completed_exercises: [CompletedExercise.schema]
 })
 
-User.methods.encrypt = function(password) {
+userSchema.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
 }
 
-User.methods.validPassword = function(password) {
+userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password)
 }
 
