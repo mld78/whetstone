@@ -42,11 +42,17 @@ function getLogout(request, response) {
   response.redirect('/');
 }
 
+// Restricted page
+function secret(request, response){
+  response.render('secret.ejs')
+}
+
 
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
   getSignup: getSignup,
   postSignup: postSignup,
-  getLogout: getLogout
+  getLogout: getLogout,
+  secret: secret
 }
