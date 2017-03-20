@@ -42,6 +42,28 @@ function getLogout(request, response) {
   response.redirect('/');
 }
 
+// =====================================
+// FACEBOOK ACTIONS=====================
+// =====================================
+// route for facebook authentication and login
+function getFacebook(request, response) {
+  var signupStrategy = passport.authenticate('facebook', {
+    scope : 'email'
+  });
+
+  return signupStrategy(request, response);
+}
+
+// handle the callback after facebook has authenticated the user
+function getFacebookCallback(request, response) {
+  var loginProperty = passport.authenticate('facebook', {
+    successRedirect : '/',
+    failureRedirect : '/login'
+  });
+
+  return loginProperty(request, response);
+}
+
 // Restricted page
 function secret(request, response){
   response.render('secret.ejs')
@@ -54,5 +76,7 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
+  getFacebook: getFacebook,
+  getFacebookCallback: getFacebookCallback,
   secret: secret
 }
