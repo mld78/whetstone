@@ -5,8 +5,9 @@ var express = require('express'),
 var {index} = require('../controllers/methods_controller')
 
 // root path
-router.route('/')
-	.get(index)
+router.get('/', function(req,res){
+	res.json({message:"Hello, World"})
+})
 
 
 
