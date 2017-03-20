@@ -11,3 +11,13 @@ function index(req, res) {
     res.json(methods)
   })
 }
+
+function show(req, res) {
+  var id = req.params.id
+
+  Method.findById(id, function(err, methods) {
+    if(err) throw err
+
+    res.json(methods)
+  })
+}
