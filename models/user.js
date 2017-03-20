@@ -14,7 +14,7 @@ var userSchema = new mongoose.Schema({
 		token: String,
 		email: String,
 		name: String
-	}
+	},
 	completed_exercises: [CompletedExercise.schema]
 })
 

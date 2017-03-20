@@ -1,16 +1,13 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express'),
+    router = express.Router(),
 // Parses information from POST
-var bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
 // Used to manipulate POST methods
-var methodOverride = require('method-override');
-var passport = require("passport");
-var usersController = require('../controllers/users_controller');
-
-
+    methodOverride = require('method-override'),
+    passport = require("passport"),
+    usersController = require('../controllers/users_controller'),
 // require controllers
-var {index} = require('../controllers/methods_controller')
-
+    {index} = require('../controllers/methods_controller')
 
 // root path
 router.get('/', function(req,res){
@@ -19,13 +16,13 @@ router.get('/', function(req,res){
 
 function authenticateUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
-  if (req.isAuthenticated()) return next();
+  if (req.isAuthenticated()) return next()
 
   // Otherwise the request is always redirected to the home page
-  res.redirect('/');
+  res.redirect('/')
 }
 
-
+// Local authentication routes
 
 router.route('/signup')
   .get(usersController.getSignup)
@@ -38,18 +35,18 @@ router.route('/login')
 router.route("/logout")
   .get(usersController.getLogout)
 
-	// =====================================
-	// FACEBOOK ROUTES =====================
-	// =====================================
-	// route for facebook authentication and login
-	router.route("/auth/facebook")
-	  .get(usersController.getFacebook)
+// Facebook authentication routes
 
-	// handle the callback after facebook has authenticated the user
-	router.route("/auth/facebook/callback")
-	  .get(usersController.getFacebookCallback)
+// route for facebook authentication and login
+router.route("/auth/facebook")
+  .get(usersController.getFacebook)
 
-	// =======END FACEBOOK ROUTES===========
+// handle the callback after facebook has authenticated the user
+router.route("/auth/facebook/callback")
+  .get(usersController.getFacebookCallback)
+
+
+// Password-protected routes
 
 router.route("/secret")
   .get(authenticateUser, usersController.secret)
