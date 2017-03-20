@@ -38,18 +38,18 @@ router.route('/login')
 router.route('/logout')
   .get(usersController.getLogout)
 
-	// =====================================
-	// FACEBOOK ROUTES =====================
-	// =====================================
-	// route for facebook authentication and login
-	router.route('/auth/facebook')
-	  .get(usersController.getFacebook)
+// =====================================
+// FACEBOOK ROUTES =====================
+// =====================================
+// route for facebook authentication and login
+router.route('/auth/facebook')
+  .get(usersController.getFacebook)
 
-	// handle the callback after facebook has authenticated the user
-	router.route('/auth/facebook/callback')
-	  .get(usersController.getFacebookCallback)
+// handle the callback after facebook has authenticated the user
+router.route('/auth/facebook/callback')
+  .get(usersController.getFacebookCallback)
 
-	// =======END FACEBOOK ROUTES===========
+// =======END FACEBOOK ROUTES===========
 
 router.route('/secret')
   .get(authenticateUser, usersController.secret)
