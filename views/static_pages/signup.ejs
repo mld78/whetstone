@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(`../partials/head`) %>
+    <%- include(`../partials/scripts`) %>
+  </head>
+  <body>
+    <!-- <%/* -  Placeholder for include(`../partials/header`, {page: `home`})
+    This is the Nav Bar for the top of the page. */ %> -->
+    <h2>Signup</h2>
+
+    <% if (message.length > 0) { %>
+      <div class="alert"><%= message %></div>
+    <% } %>
+
+    <form action="/signup" method="post">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password">
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input class="form-control" type="password" name="confirm-password" id="confirm-password">
+      </div>
+
+      <input class="btn" type="submit">
+    </form>
+
+    <br><hr>
+    <h2>Login/Register with Facebook:</h2>
+    <a href="/auth/facebook"><span class="fa fa-facebook"></span> Facebook</a>
+  </body>
+</html>
