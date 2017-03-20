@@ -6,8 +6,11 @@ var mongoose = require('mongoose'),
 // consider changing it to function or something.
 var userSchema = new mongoose.Schema({
 	local : {
+    title        : String,
+    name         : String,
 		email        : String,
-		password     : String,
+		password     : String
+
 	},
 	facebook: {
 		id: String,
@@ -17,8 +20,6 @@ var userSchema = new mongoose.Schema({
 	},
 	completed_exercises: [CompletedExercise.schema]
 })
-
-
 userSchema.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
 }
