@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-	Test = mongoose.model('Exercise')
+	Test = require('./exercise')
 
 // it's possible the name "method" isn't the best, we could
 // consider changing it to function or something.

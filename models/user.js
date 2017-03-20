@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
-	bcrypt   = require('bcrypt-nodejs')
-	// CompletedExercise = mongoose.model('CompletedExercise')
+	bcrypt   = require('bcrypt-nodejs'),
+	CompletedExercise = require('./completed_exercise')
 
 // it's possible the name "method" isn't the best, we could
 // consider changing it to function or something.
@@ -17,8 +17,8 @@ var userSchema = new mongoose.Schema({
 		token: String,
 		email: String,
 		name: String
-	}
-	// completed_exercises: [CompletedExercise.schema]
+	},
+	 completed_exercises: [CompletedExercise.schema]
 })
 
 userSchema.methods.encrypt = function(password) {
