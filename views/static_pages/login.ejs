@@ -7,5 +7,28 @@
   <body>
     <!-- <%/* -  Placeholder for include(`../partials/header`, {page: `home`})
     This is the Nav Bar for the top of the page. */ %> -->
+
+    <% if (message.length > 0) { %>
+      <div class="alert"><%= message %></div>
+    <% } %>
+
+    <form method="post" action="/login">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" name="email" id="email">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Password</label>
+        <input class="form-control" type="password" name="password" id="password">
+      </div>
+
+      <input class="btn" type="submit">
+    </form>
+
+    <br><hr>
+    <h2>Login/Register with Facebook:</h2>
+    <a href="/auth/facebook"><span class="fa fa-facebook"></span> Facebook</a>
+
   </body>
 </html>
