@@ -18,9 +18,10 @@ var userSchema = new mongoose.Schema({
 		email: String,
 		name: String
 	},
-	 completed_exercises: [CompletedExercise.schema]
-})
 
+	 completed_exercises: [CompletedExercise.schema]
+
+})
 userSchema.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
 }
