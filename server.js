@@ -21,9 +21,9 @@ var app = express()
 mongoose.connect('mongodb://localhost/whetstone')
 
 // special middle ware
-app.use(morgan('dev')) 
+app.use(morgan('dev'))
 app.use(cookieParser())
-app.use(bodyParser()) 
+app.use(bodyParser())
 
 // set up view engine and path
 app.set('view engine', 'ejs')
@@ -34,13 +34,14 @@ app.set("views","./views")
 app.use(express.static(__dirname + '/public'))
 
 // configure passport
-// app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' })) 
+// app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }))
 // app.use(passport.initialize())
-// app.use(passport.session()) 
+// app.use(passport.session())
 // app.use(flash())
 // require('./config/passport')(passport)
 
 // This middleware will allow us to use the current user in the layout
+require('./config/routes')(passport)
 app.use(function (req, res, next) {
   global.user = req.user
   next()
@@ -56,6 +57,3 @@ app.listen(port, function(){
 	var bracket = '='.repeat(msg.length+4)
 	console.log(`${bracket}\n| ${msg} |\n${bracket}`)
 })
-
-
-

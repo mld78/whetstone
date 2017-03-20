@@ -1,8 +1,15 @@
 var express = require('express'),
-	router  = new express.Router()
+		router  = new express.Router()
 
 var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../models/user');
+// Parses information from POST
+var bodyParser = require('body-parser');
+// Used to manipulate POST methods
+var methodOverride = require('method-override');
+var passport = require("passport");
+var usersController = require('../controllers/users');
+var staticsController = require('../controllers/statics');
 
 // require controllers
 module.exports = function(passport) {
@@ -50,11 +57,32 @@ passport.use('local-signup', new LocalStrategy({
  }));
 
 
+ passport.use('local-login', new LocalStrategy({
+		usernameField : 'email',
+		passwordField : 'password',
+		passReqToCallback : true
+	}, function(req, email, password, callback) {
+		// Search for a user with this email
+		 User.findOne({ 'local.email' :  email }, function(err, user) {
+			 if (err) return callback(err);
+
+				// If no user is found
+			 if (!user) return callback(null, false, req.flash('loginMessage', 'No user found.'));
+
+			 // Wrong password
+			 if (!user.validPassword(password))     return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+
+			 return callback(null, user);
+		 });
+	}));
+
+
 
 }
 
 
 // set up routes
+
 
 
 
