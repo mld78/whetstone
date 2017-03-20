@@ -17,7 +17,6 @@ function show(req, res) {
 
   Method.findById(id, function(err, methods) {
     if(err) throw err
-
     res.json(methods)
   })
 }
