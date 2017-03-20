@@ -1,31 +1,42 @@
-var express = require('express');
-var router = express.Router();
+///// PLUMBING /////
+
+// Basic setup
+var express = require('express'),
+    router = express.Router(),
 // Parses information from POST
-var bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
 // Used to manipulate POST methods
-var methodOverride = require('method-override');
-var passport = require("passport");
+    methodOverride = require('method-override'),
+    passport = require("passport")
 
+// Require controllers
+var usersController = require('../controllers/users_controller'),
+    methodsController = require('../controllers/methods_controller'),
+    exercisesController = require('../controllers/exercises_controller'),
+    staticPagesController = require('../controllers/static_pages_controller')
 
-// require controllers
-var usersController = require('../controllers/users_controller');
-var methodsController = require('../controllers/methods_controller')
-var exercisesController = require('../controllers/exercises_controller')
+// Routes helpers
 
-// root path
-router.get('/', function(req,res){
-	res.json({message:"Hello, World"})
-})
-
-function authenticateUser(req, res, next) {
+function authenticateUser(request, response, next) {
   // If the user is authenticated, then we continue the execution
-  if (req.isAuthenticated()) return next();
-
-  // Otherwise the request is always redirected to the home page
-  res.redirect('/');
+  if (request.isAuthenticated()) return next()
+  // Otherwise the request is always redirected to the login page
+  response.redirect('/login')
 }
 
+///// ROUTES /////
 
+// Root path
+router.get('/', function(request,response){
+	response.render('./static_pages/index.ejs')
+})
+
+// Static Pages
+
+router.route('/about')
+	.get(staticPagesController.about)
+
+// Authentication Routes
 
 router.route('/signup')
   .get(usersController.getSignup)
@@ -38,23 +49,22 @@ router.route('/login')
 router.route('/logout')
   .get(usersController.getLogout)
 
-	// =====================================
-	// FACEBOOK ROUTES =====================
-	// =====================================
-	// route for facebook authentication and login
-	router.route('/auth/facebook')
-	  .get(usersController.getFacebook)
+// route for facebook authentication and login
+router.route('/auth/facebook')
+  .get(usersController.getFacebook)
 
-	// handle the callback after facebook has authenticated the user
-	router.route('/auth/facebook/callback')
-	  .get(usersController.getFacebookCallback)
+// handle the callback after facebook has authenticated the user
+router.route('/auth/facebook/callback')
+  .get(usersController.getFacebookCallback)
 
-	// =======END FACEBOOK ROUTES===========
 
-router.route('/secret')
-  .get(authenticateUser, usersController.secret)
+// User routes
 
-// Exercises ROUTES
+router.route('/dashboard')
+	.get(authenticateUser, usersController.dashboard)
+
+
+// Exercises routes
 
 router.route('/exercises')
 	.get(exercisesController.index)

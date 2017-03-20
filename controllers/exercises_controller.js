@@ -1,18 +1,22 @@
-var Method = require('../models/exercise')
+var Exercise = require('../models/exercise')
+
+// Interface paths
+
+// API paths
 
 function index(req, res) {
-  Method.find({}, function(err, methods) {
+  Exercise.find({}, function(err, exercises) {
     if (err) throw err
-    res.json(methods)
+    res.json(exercises)
   })
 }
 
 function show(req, res) {
   var id = req.params.id
 
-  Method.findById(id, function(err, methods) {
+  Exercise.findById(id, function(err, exercises) {
     if(err) throw err
-    res.json(methods)
+    res.json(exercises)
   })
 }
 
