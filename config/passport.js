@@ -111,17 +111,16 @@ passport.use('local-signup', new LocalStrategy({
 
 	                   // save our user to the database
 	                   newUser.save(function(err) {
-	                       if (err)
-	                           throw err;
+	                       if (err) throw err
 
 	                       // if successful, return the new user
-	                       return done(null, newUser);
-	                   });
+	                       return done(null, newUser)
+	                   })
 	               }
 
-	           });
-	       });
-	   }));
-	  //  =========================END FACEBOOK=====================================
+	           })
+	       })
+	   }))
+//  =========================END FACEBOOK=====================================
 
 }
