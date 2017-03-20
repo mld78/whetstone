@@ -8,7 +8,14 @@ var passport = require("passport");
 var usersController = require('../controllers/users_controller');
 
 
-// set up routes
+// require controllers
+var {index} = require('../controllers/methods_controller')
+
+
+// root path
+router.get('/', function(req,res){
+	res.json({message:"Hello, World"})
+})
 
 function authenticateUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
