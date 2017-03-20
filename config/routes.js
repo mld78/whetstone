@@ -1,13 +1,16 @@
-var express = require('express'),
-    router = express.Router(),
+var express = require('express');
+var router = express.Router();
 // Parses information from POST
-    bodyParser = require('body-parser'),
+var bodyParser = require('body-parser');
 // Used to manipulate POST methods
-    methodOverride = require('method-override'),
-    passport = require("passport"),
-    usersController = require('../controllers/users_controller'),
+var methodOverride = require('method-override');
+var passport = require("passport");
+
+
 // require controllers
-    {index} = require('../controllers/methods_controller')
+var usersController = require('../controllers/users_controller');
+var methodsController = require('../controllers/methods_controller')
+var exercisesController = require('..controllers/exercises_controller')
 
 // root path
 router.get('/', function(req,res){
@@ -16,13 +19,13 @@ router.get('/', function(req,res){
 
 function authenticateUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
-  if (req.isAuthenticated()) return next()
+  if (req.isAuthenticated()) return next();
 
   // Otherwise the request is always redirected to the home page
-  res.redirect('/')
+  res.redirect('/');
 }
 
-// Local authentication routes
+
 
 router.route('/signup')
   .get(usersController.getSignup)
@@ -32,27 +35,31 @@ router.route('/login')
   .get(usersController.getLogin)
   .post(usersController.postLogin)
 
-router.route("/logout")
+router.route('/logout')
   .get(usersController.getLogout)
 
-// Facebook authentication routes
+	// =====================================
+	// FACEBOOK ROUTES =====================
+	// =====================================
+	// route for facebook authentication and login
+	router.route('/auth/facebook')
+	  .get(usersController.getFacebook)
 
-// route for facebook authentication and login
-router.route("/auth/facebook")
-  .get(usersController.getFacebook)
+	// handle the callback after facebook has authenticated the user
+	router.route('/auth/facebook/callback')
+	  .get(usersController.getFacebookCallback)
 
-// handle the callback after facebook has authenticated the user
-router.route("/auth/facebook/callback")
-  .get(usersController.getFacebookCallback)
+	// =======END FACEBOOK ROUTES===========
 
-
-// Password-protected routes
-
-router.route("/secret")
+router.route('/secret')
   .get(authenticateUser, usersController.secret)
 
+// Exercises ROUTES
 
+router.route('/exercises')
+	.get(exercisesController.index)
 
-
+router.route('/exercises/:id')
+	.get(exercisesController.show)
 
 module.exports = router
