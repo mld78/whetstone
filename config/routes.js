@@ -10,7 +10,7 @@ var passport = require("passport");
 // require controllers
 var usersController = require('../controllers/users_controller');
 var methodsController = require('../controllers/methods_controller')
-var exercisesController = require('..controllers/exercises_controller')
+var exercisesController = require('../controllers/exercises_controller')
 
 // root path
 router.get('/', function(req,res){
