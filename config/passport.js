@@ -19,12 +19,12 @@ module.exports = function(passport) {
 
 
 passport.use('local-signup', new LocalStrategy({
-	titlenameField : 'title',
-	nameField : 'name',
+	// titlenameField : 'title',
+	// nameField : 'name',
 	usernameField : 'email',
 	passwordField : 'password',
 	passReqToCallback : true
-}, function(req, title, name, email, password, callback) {
+}, function(req, email, password, callback) {
 	 process.nextTick(function() {
 		 // Find a user with this e-mail
 		 User.findOne({ 'local.email' :  email }, function(err, user) {
@@ -39,8 +39,8 @@ passport.use('local-signup', new LocalStrategy({
 
 				 // Create a new user
 				 var newUser            = new User()
-				 newUser.local.title    = title
-				 newUser.local.name    = name
+				 newUser.local.name = req.body.name
+				 newUser.local.title = req.body.title
 				 newUser.local.email    = email
 				 newUser.local.password = newUser.encrypt(password)
 

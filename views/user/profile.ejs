@@ -2,19 +2,28 @@
 <html>
 
 <head>
-    // Edit or Delete User info page  
+  <% if (user)
+
+    // Edit or Delete User info page
     <h1><%= user.facebook.email || user.local.email %></h1>
 </head>
 
 <body>
     // User data pulled in
     <h2>User information</h2>
+
+    <p>Title:
+        <%= user.local.title %>
+    </p><br>
+
     <p>Name:
         <%= user.local.name %>
     </p><br>
+
     <p>Email:
         <%= user.facebook.email || user.local.email %>
     </p><br>
+
     <p>Password:
         <%= user.local.password %>
     </p><br>
