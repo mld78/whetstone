@@ -9,7 +9,7 @@ var express      = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser   = require('body-parser'),
     session      = require('express-session'),
-    port 		 = process.env.PORT || 3000
+    port         = process.env.PORT || 3000
 
 // load env variable from .env file
 require('dotenv').config()
@@ -34,7 +34,7 @@ app.set("views","./views")
 app.use(express.static(__dirname + '/public'))
 
 // configure passport
-app.use(session({ secret: 'Whetstone' }))
+app.use(session({ secret: 'WHETSTONE-CODE-SHARPENING' }))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())

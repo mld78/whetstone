@@ -7,7 +7,7 @@
   <body>
     <%- include(`../partials/header`, {page: `edit method`}) %>
 
-    <form method="post" action="/methods/:id/edit">
+    <form method="post" action="/methods/<%= method.id %>/edit">
 
       <div class="form-group">
         <label for="name">Method</label>
@@ -16,22 +16,22 @@
 
       <div class="form-group">
         <label for="language">Language</label>
-        <input class="form-control" type="text" name="language" id="language" placeholder="Ex: JavaScript, jQuery, ECMAScript 6" value=<%= method. %>>
+        <input class="form-control" type="text" name="language" id="language" placeholder="Ex: JavaScript, jQuery, ECMAScript 6" value=<%= method.language %>>
       </div>
 
       <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control" rows="3" cols="80" name="description" id="description" placeholder="Add description here..." value=<%= method. %>> </textarea>
+        <textarea class="form-control" rows="3" cols="80" name="description" id="description" placeholder="Add description here..." ><%= method.description %></textarea>
       </div>
 
       <div class="form-group">
         <label for="version_added">Version</label>
-        <input class="form-control" type="text" name="version_added" id="version_added" placeholder="Ex: ECMAScript 2016" value=<%= method. %>>
+        <input class="form-control" type="text" name="version_added" id="version_added" placeholder="Ex: ECMAScript 2016" value=<%= method.version_added %>>
       </div>
 
       <div class="form-group">
         <label for="docs_url">Docs</label>
-        <input class="form-control" type="url" name="docs_url" id="docs_url" placeholder="Ex: https://developer.mozilla.org/..." value=<%= method. %>>
+        <input class="form-control" type="url" name="docs_url" id="docs_url" placeholder="Ex: https://developer.mozilla.org/..." value=<%= method.docs_url %>>
       </div>
 
       <input class="btn" type="submit">

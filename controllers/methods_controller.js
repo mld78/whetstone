@@ -60,14 +60,12 @@ function editMethod(req, res) {
 function updateMethod(req, res) {
   var id = req.params.id
 
-  Method.findById(id, function(err, updatedMethod) {
+  Method.findById({_id: id}, function(err, updatedMethod) {
     if (err || !updatedMethod) throw err
 
-    Method.
     res.json(updatedMethod)
   })
 }
-
 
 // DELETE
 function destroyMethod(req, res) {
