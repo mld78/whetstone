@@ -17,11 +17,16 @@
       <div class="form-group">
         <label for="method">Method</label>
         <select class="form-control" name="method">
-          <% methods.forEach(function(method) { %>
-            <option value=<%= method.id %>>
-              <%= method.name %>
-            </option>
-          <% }) %>
+          <% methods.forEach(function(curMethod) { %>
+            <% if (exercise.method == curMethod.id) { %>
+              <option selected="selected" value="<%= curMethod.id %>">
+                <%= curMethod.name %>
+              </option>
+            <% } else { %>
+              <option value="<%= curMethod.id %>">
+                <%= curMethod.name %>
+              </option>
+          <% }}) %>
         </select>
       </div>
 
