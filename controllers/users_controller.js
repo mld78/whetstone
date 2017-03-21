@@ -61,6 +61,25 @@ function dashboard(request, response){
   // })
 }
 
+function exercises(request, response){
+  response.render('./user/exercises')
+  // User.findById({user}, function(err, user){
+  //   if (err) throw err
+  //   response.render('./user/dashboard', {user: user})
+  // })
+}
+
+
+function runCode(request, response){
+  response.render('./user/exercises')
+  // User.findById({user}, function(err, user){
+  //   if (err) throw err
+  //   response.render('./user/dashboard', {user: user})
+  // })
+}
+
+
+
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
@@ -70,5 +89,7 @@ module.exports = {
   getFacebook: getFacebook,
   getFacebookCallback: getFacebookCallback,
 
-  dashboard: dashboard
+  dashboard: dashboard,
+  runCode: runCode,
+  exercises: exercises
 }

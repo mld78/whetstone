@@ -16,7 +16,7 @@
         <% if (completeCount && user.completed_exercises[completeCount-1].time_completed.toDateString() === today.toDateString()) { %>
 	        <p>Done for the day!</p>
         <% } else { %>
-	        <a href="#">Do today's exercises.</a>
+	        <a href="/exercises">Do today's exercises.</a>
         <% } %>
         
         <h2>Completed Exercises</h2>

@@ -9,6 +9,30 @@ dark blue: #667082
 lighter blue: #9aa1ac
 */
 
+/* General Styles */
+
 img {
 	width: 200px;
+}
+
+button {
+	display: block;
+	cursor: pointer;
+}
+
+/* Exercises Styles */
+
+#input {
+	width: 400px;
+	height: 200px;
+
+	border: 1px solid black;
+}
+#output {
+	width: 400px;
+	height: 200px;
+	background-color: purple;
+	color: white;
+
+	border: 1px solid black;
 }

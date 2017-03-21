@@ -63,12 +63,16 @@ router.route('/auth/facebook/callback')
 router.route('/dashboard')
 	.get(authenticateUser, usersController.dashboard)
 
+router.route('/exercises')
+	.get(authenticateUser, usersController.exercises)
+	.post(usersController.runCode)
+
 // Exercises routes
 
-router.route('/exercises')
+router.route('/json/exercises')
 	.get(exercisesController.index)
 
-router.route('/exercises/:id')
+router.route('/json/exercises/:id')
 	.get(exercisesController.show)
 
 module.exports = router

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(`../partials/head`) %>
+    <%- include(`../partials/scripts`) %>
+  </head>
+  <body>
+    <%- include(`../partials/header`) %>
+    <div>
+        <h1>Today's Exercises</h1>
+        <div id="prompt">
+            <p>Given a single dash as a string, return its type as a string - "em", "en", or "hyphen".
+    This might be a good resource: http://www.thepunctuationguide.com/hyphen-and-dashes.html.</p>
+        </div>
+        <textarea id="input"></textarea>
+        <button>Run</button>
+        <div id="output">
+        </div>
+    </div>
+  </body>
+</html>

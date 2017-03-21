@@ -28,6 +28,7 @@
     "express": "^4.15.2",
     "express-ejs-layouts": "^2.2.0",
     "express-session": "^1.15.1",
+    "hackerearth-node": "^2.3.9",
     "method-override": "^2.3.7",
     "mongodb": "^2.2.25",
     "mongoose": "^4.9.0",
