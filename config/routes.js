@@ -64,7 +64,8 @@ router.route('/dashboard')
 	.get(authenticateUser, usersController.dashboard)
 
 router.route('/exercises')
-	.get(authenticateUser, usersController.exercises)
+	// .get(authenticateUser, usersController.exercises)
+	.get(usersController.exercises)
 	.post(usersController.runCode)
 
 // Exercises routes

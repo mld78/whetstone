@@ -2,7 +2,6 @@
 <html>
   <head>
     <%- include(`../partials/head`) %>
-    <%- include(`../partials/scripts`) %>
   </head>
   <body>
     <%- include(`../partials/header`) %>
@@ -13,9 +12,11 @@
     This might be a good resource: http://www.thepunctuationguide.com/hyphen-and-dashes.html.</p>
         </div>
         <textarea id="input"></textarea>
-        <button>Run</button>
+        <button id="run">Run</button>
         <div id="output">
+         <p></p>
         </div>
     </div>
+    <%- include(`../partials/scripts`) %>
   </body>
 </html>
