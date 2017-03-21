@@ -43,6 +43,7 @@ function show(req, res) {
   })
 }
 
+
 // EDIT
 function editMethod(req, res) {
   var id = req.params.id
@@ -56,6 +57,7 @@ function editMethod(req, res) {
       })
   })
 }
+
 
 // UPDATE
 function updateMethod(req, res) {
@@ -77,6 +79,7 @@ function updateMethod(req, res) {
   })
 }
 
+
 // DELETE
 function destroyMethod(req, res) {
   var id = req.params.id
@@ -92,6 +95,8 @@ function destroyMethod(req, res) {
   // }
 }
 
+
+// EXPORTS
 module.exports = {
 	index: index,
   show: show,

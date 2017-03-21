@@ -5,7 +5,8 @@ var Method = require('../models/method')
 
 // API paths
 
-//Index
+
+// INDEX
 function index(req, res) {
   Exercise.find({}, function(err, exercises) {
     if (err) throw err
@@ -13,16 +14,22 @@ function index(req, res) {
   })
 }
 
-//NEW
+
+// NEW
 function newExercise(req, res) {
+  Method.find({}, function(err, methods) {
+    if (err) throw err
+
   res.render(`./admin/exercise_form.ejs`,
     {
       methods: methods,
       message: req.flash(`adminMessage`)
     })
+    })
 }
 
-//CREATE
+
+// CREATE
 function createExercise(req, res) {
   var newExercise = new Exercise(req.body)
   newExercise.save(function(err, savedExercise) {
@@ -31,7 +38,8 @@ function createExercise(req, res) {
   })
 }
 
-//SHOW
+
+// SHOW
 function show(req, res) {
   var id = req.params.id
 
@@ -41,20 +49,26 @@ function show(req, res) {
   })
 }
 
+
 // EDIT
 function editExercise(req, res) {
   var id = req.params.id
+  Method.find({}, function(err, methods){
+    if (err) throw err
+
   Exercise.findById({_id: id}, function(err, exercise) {
     if (err) throw err
     res.render(`./admin/edit_exercise_form.ejs`,
       {
         message: req.flash(`adminMessage`),
         exercise: exercise,
-        method: method,
+        methods: methods,
         destroyExercise: destroyExercise
       })
+    })
   })
 }
+
 
 // UPDATE
 function updateExercise(req, res) {
@@ -76,6 +90,7 @@ function updateExercise(req, res) {
   })
 }
 
+
 // DELETE
 function destroyExercise(req, res) {
   var id = req.params.id
@@ -91,12 +106,13 @@ function destroyExercise(req, res) {
   // }
 }
 
+// EXPORTS
 module.exports = {
  index: index,
  show: show,
  newExercise: newExercise,
  createExercise: createExercise,
  editExercise: editExercise,
- updateExercise: updatedExercise,
+ updateExercise: updateExercise,
  destroyExercise: destroyExercise
 }
