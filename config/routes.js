@@ -58,11 +58,13 @@ router.route('/auth/facebook/callback')
   .get(usersController.getFacebookCallback)
 
 
-// User routes
+// User Routes
 
 router.route('/dashboard')
 	.get(authenticateUser, usersController.dashboard)
 
+// router.route('/user/:name/edit')
+//   .get(authenticateUser, usersController.editMethod)
 
 // Method Routes
 router.route('/methods')
@@ -72,9 +74,13 @@ router.route('/methods/new')
   .get(authenticateUser, methodsController.newMethod)
   .post(authenticateUser, methodsController.createMethod)
 
+router.route('/methods/:id/edit')
+  .get(authenticateUser, methodsController.editMethod)
+  .post(authenticateUser, methodsController.updateMethod)
+  .delete(authenticateUser, methodsController.destroyMethod)
+
 router.route('/methods/:id')
   .get(authenticateUser, methodsController.show)
-
 
 // Exercises routes
 
