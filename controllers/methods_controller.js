@@ -80,8 +80,8 @@ function updateMethod(req, res) {
 // DELETE
 function destroyMethod(req, res) {
   var id = req.params.id
-
-  if (prompt(`ARE YOU SURE YOU WANT TO DELETE THIS METHOD?\nType: "YES DELETE METHOD"\n\n${req.body}`) === "YES DELETE METHOD") {
+  // var areYouSure = prompt(`ARE YOU SURE YOU WANT TO DELETE THIS METHOD?\nType: "YES DELETE METHOD"\n\n${req.body}`)
+  // if (areYouSure === "YES DELETE METHOD") {
 
     Method.remove({_id: id}, function(err) {
       if (err) res.json( {message: `Could not delete Method b/c: ${err}`} )
@@ -89,7 +89,7 @@ function destroyMethod(req, res) {
       res.json({message: 'Method successfully deleted.'});
     })
 
-  }
+  // }
 }
 
 module.exports = {
