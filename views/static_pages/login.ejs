@@ -13,23 +13,29 @@
       <div class="alert"><%= message %></div>
     <% } %>
 
+    <br><br><br>
+
     <form method="post" action="/login">
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email: &nbsp; &nbsp; &nbsp; &nbsp; </label>
         <input class="form-control" type="text" name="email" id="email">
       </div>
 
+    <br>
+
       <div class="form-group">
-        <label for="email">Password</label>
+        <label for="email">Password:</label>
         <input class="form-control" type="password" name="password" id="password">
       </div>
 
+    <br>
       <input class="btn" type="submit">
     </form>
 
-    <br><hr>
-    <h2>Login/Register with Facebook:</h2>
+    <br><hr><br>
+    <h2>or login with:</h2><br>
     <a href="/auth/facebook"><span class="fa fa-facebook"></span> Facebook</a>
+    <script src="https://use.fontawesome.com/c25ceb8929.js"></script>
 
   </body>
 </html>
