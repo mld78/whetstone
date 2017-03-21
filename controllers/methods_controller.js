@@ -35,9 +35,30 @@ function createMethod(req, res) {
   })
 }
 
+function updateMethod(req, res) {
+  var id = req.params.id
+
+  Method.findById(id, function(err, method) {
+    if (err || !method) throw err
+
+  })
+}
+
+function destroyMethod(req, res) {
+  var id = req.params.id
+
+  Method.remove({_id: id}, function(err) {
+    if (err) res.json( {message: `Could not delete Method b/c: ${err}`} )
+
+    res.json({message: 'Method successfully deleted.'});
+  })
+}
+
 module.exports = {
 	index: index,
   show: show,
   newMethod: newMethod,
-  createMethod: createMethod
+  createMethod: createMethod,
+  updateMethod: updateMethod,
+  destroyMethod: destroyMethod
 }

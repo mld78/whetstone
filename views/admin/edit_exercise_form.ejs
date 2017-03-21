@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(`../partials/head`) %>
+    <%- include(`../partials/scripts`) %>
+  </head>
+  <body>
+    <%- include(`../partials/header`, {page: `edit exercise`}) %>
+
+    <form method="post" action="/exercises/:id/edit">
+
+      <div class="form-group">
+        <label for="name">Exercise Name</label>
+        <input class="form-control" type="text" name="name" id="exercise" placeholder="Exercise name">
+      </div>
+
+      <div class="form-group">
+        <label for="method">Method</label>
+        <select class="form-control" name="method">
+          <% methods.forEach(function(method) { %>
+            <option value=<%= method.id %>>
+              <%= method.name %>
+            </option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="language">Difficulty</label>
+        <input class="form-control" type="number" min="1" max="8" name="difficulty" id="difficulty" placeholder="Between 1 and 8">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Prompt</label>
+        <textarea class="form-control" name="prompt" rows="3" cols="80" id="prompt" placeholder=""></textarea>
+      </div>
+
+      <input class="btn" type="submit">
+    </form>
+
+  </body>
+</html>

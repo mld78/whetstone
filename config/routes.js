@@ -74,7 +74,8 @@ router.route('/methods/new')
 
 router.route('/methods/:id')
   .get(authenticateUser, methodsController.show)
-
+  .patch(authenticateUser, methodsController.updateMethod)
+  .delete(authenticateUser, methodsController.destroyMethod)
 
 // Exercises routes
 
