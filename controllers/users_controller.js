@@ -55,6 +55,10 @@ function getFacebookCallback(request, response) {
 
 function dashboard(request, response){
   response.render('./user/dashboard')
+  // User.findById({user}, function(err, user){
+  //   if (err) throw err
+  //   response.render('./user/dashboard', {user: user})
+  // })
 }
 
 module.exports = {

@@ -36,6 +36,7 @@ app.use(express.static(__dirname + '/public'))
 // configure passport
 app.use(session({ secret: 'Whetstone' }))
 app.use(passport.initialize())
+// session implementaion
 app.use(passport.session())
 app.use(flash())
 

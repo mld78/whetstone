@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
 // consider changing it to function or something.
 var completedExerciseSchema = new mongoose.Schema({
 	exercise: {type: mongoose.Schema.ObjectId, ref: 'Exercise'},
-	time_elapsed: Date,
+	time_started: Date,
+	time_completed: Date,
 	solution: String
 })
 

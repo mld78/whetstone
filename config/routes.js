@@ -27,7 +27,7 @@ function authenticateUser(request, response, next) {
 ///// ROUTES /////
 
 // Root path
-router.get('/', function(request,response){
+router.get('/', function(request, response){
 	response.render('./static_pages/index.ejs')
 })
 
@@ -62,7 +62,6 @@ router.route('/auth/facebook/callback')
 
 router.route('/dashboard')
 	.get(authenticateUser, usersController.dashboard)
-
 
 // Exercises routes
 
