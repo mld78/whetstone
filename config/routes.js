@@ -69,31 +69,31 @@ router.route('/exercises')
 	.post(usersController.runCode)
 
 // Method Routes
-router.route('admin/methods')
+router.route('/admin/methods')
   .get(authenticateUser, methodsController.index)
 
-router.route('admin/methods/new')
+router.route('/admin/methods/new')
   .get(authenticateUser, methodsController.newMethod)
   .post(authenticateUser, methodsController.createMethod)
 
-router.route('admin/methods/:id/edit')
+router.route('/admin/methods/:id/edit')
   .get(authenticateUser, methodsController.editMethod)
   .post(authenticateUser, methodsController.updateMethod)
   .delete(authenticateUser, methodsController.destroyMethod)
 
-router.route('admin/methods/:id')
+router.route('/admin/methods/:id')
   .get(authenticateUser, methodsController.show)
 
 // Exercises routes
 
-router.route('admin/exercises')
+router.route('/admin/exercises')
 	.get(authenticateUser, exercisesController.index)
 
-router.route('admin/exercises/new')
+router.route('/admin/exercises/new')
   .get(authenticateUser, exercisesController.newExercise)
   .post(authenticateUser, exercisesController.createExercise)
 
-router.route('admin/exercises/:id')
+router.route('/admin/exercises/:id')
 	.get(authenticateUser, exercisesController.show)
 
 module.exports = router
