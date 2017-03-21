@@ -51,7 +51,8 @@ function editMethod(req, res) {
     res.render(`./admin/edit_method_form.ejs`,
       {
         message: req.flash(`adminMessage`),
-        method: method
+        method: method,
+        destroyMethod: destroyMethod
       })
   })
 }

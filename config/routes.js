@@ -79,7 +79,10 @@ router.route('/admin/methods/new')
 router.route('/admin/methods/:id/edit')
   .get(authenticateUser, methodsController.editMethod)
   .post(authenticateUser, methodsController.updateMethod)
-  .delete(authenticateUser, methodsController.destroyMethod)
+
+router.route('/admin/methods/:id/delete')
+  .post(authenticateUser, methodsController.destroyMethod)
+  // .delete(authenticateUser, methodsController.destroyMethod)
 
 router.route('/admin/methods/:id')
   .get(authenticateUser, methodsController.show)
