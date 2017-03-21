@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <% if (user)
-
-    // Edit or Delete User info page
-    <h1><%= user.facebook.email || user.local.email %></h1>
+  <%- include(`../partials/head`) %>
+  <%- include(`../partials/scripts`) %>
 </head>
 
 <body>
+  <%- include(`../partials/header`) %>
+   <!-- Edit or Delete User info page -->
+  <h1><%= user.facebook.email || user.local.email %></h1>
+
     // User data pulled in
     <h2>User information</h2>
 
@@ -28,7 +29,7 @@
         <%= user.local.password %>
     </p><br>
 
-    // Buttons to edit and delete
+    <!-- Buttons to edit and delete -->
     <a href="/user/<%= user._id %>" class="btn btn-default">Edit</a>
     <a href="/user/<%= user._id %>/delete" id="delete-account" class="btn btn-danger">Delete Account</a>
 

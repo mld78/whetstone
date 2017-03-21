@@ -1,4 +1,5 @@
 var passport = require("passport")
+var User = require("../models/user")
 
 // Authentication: sign up and log in
 
@@ -51,7 +52,20 @@ function getFacebookCallback(request, response) {
   return loginProperty(request, response)
 }
 
+// Profile
+
+function showProfile(request, response) {
+  var id = request.params.id
+
+  User.findById(id, function(err, user) {
+    if (err) throw err
+    response.render('./user/profile', {user: user})
+  })
+}
+
+
 // Dashboard
+
 
 function dashboard(request, response){
   response.render('./user/dashboard')
@@ -91,5 +105,6 @@ module.exports = {
 
   dashboard: dashboard,
   runCode: runCode,
-  exercises: exercises
+  exercises: exercises,
+  showProfile: showProfile
 }
