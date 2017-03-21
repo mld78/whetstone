@@ -22,9 +22,13 @@ function show(req, res) {
 }
 
 function newExercise(req, res) {
+  Method.find({}, function(err, methods){
+    if (err) throw err
+
   res.render(`./admin/exercise_form.ejs`,
-    {
+    {methods: methods,
       message: req.flash(`adminMessage`)
+    })
     })
 }
 
