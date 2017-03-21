@@ -58,7 +58,7 @@ router.route('/auth/facebook/callback')
   .get(usersController.getFacebookCallback)
 
 
-// User routes
+// User Routes
 
 router.route('/dashboard')
 	.get(authenticateUser, usersController.dashboard)
@@ -67,12 +67,32 @@ router.route('/exercises')
 	.get(authenticateUser, usersController.exercises)
 	.post(usersController.runCode)
 
+// Method Routes
+router.route('admin/methods')
+  .get(authenticateUser, methodsController.index)
+
+router.route('admin/methods/new')
+  .get(authenticateUser, methodsController.newMethod)
+  .post(authenticateUser, methodsController.createMethod)
+
+router.route('admin/methods/:id/edit')
+  .get(authenticateUser, methodsController.editMethod)
+  .post(authenticateUser, methodsController.updateMethod)
+  .delete(authenticateUser, methodsController.destroyMethod)
+
+router.route('admin/methods/:id')
+  .get(authenticateUser, methodsController.show)
+
 // Exercises routes
 
-router.route('/json/exercises')
-	.get(exercisesController.index)
+router.route('admin/exercises')
+	.get(authenticateUser, exercisesController.index)
 
-router.route('/json/exercises/:id')
-	.get(exercisesController.show)
+router.route('admin/exercises/new')
+  .get(authenticateUser, exercisesController.newExercise)
+  .post(authenticateUser, exercisesController.createExercise)
+
+router.route('admin/exercises/:id')
+	.get(authenticateUser, exercisesController.show)
 
 module.exports = router

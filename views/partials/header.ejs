@@ -1,12 +1,19 @@
 <div class="links">
+	<div class="left">
+		<a href="/">home</a>
+		<a href="/about">about</a>
+	</div>
+
+	<div class="right">
 <% if (user) { %>
-	<a href="/">Home</a>
 	<a href="/dashboard">Dashboard</a>
 	<a href="/logout">Log Out</a>
 <% } else { %>
-	<a href="/">Home</a>
-	<a href="/about">About</a>
 	<a href="/signup">Sign Up</a>
 	<a href="/login">Log In</a>
 <% } %>
+	</div>
+
+
+
 </div>

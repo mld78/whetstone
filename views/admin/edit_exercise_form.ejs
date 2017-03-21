@@ -5,9 +5,9 @@
     <%- include(`../partials/scripts`) %>
   </head>
   <body>
-    <%- include(`../partials/header`, {page: `home`}) %>
+    <%- include(`../partials/header`, {page: `edit exercise`}) %>
 
-    <form method="post" action="/exercises/new">
+    <form method="patch" action="/exercises/:id/edit">
 
       <div class="form-group">
         <label for="name">Exercise Name</label>
@@ -32,7 +32,7 @@
 
       <div class="form-group">
         <label for="description">Prompt</label>
-        <textarea class="form-control" name="prompt" rows="3" cols="80" id="prompt" placeholder="Add description here..." ></textarea>
+        <textarea class="form-control" name="prompt" rows="3" cols="80" id="prompt" placeholder="Add description here..."></textarea>
       </div>
 
       <input class="btn" type="submit">
