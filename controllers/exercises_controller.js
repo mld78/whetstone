@@ -1,4 +1,5 @@
 var Exercise = require('../models/exercise')
+var Method = require('../models/method')
 
 // Interface paths
 
@@ -20,7 +21,21 @@ function show(req, res) {
   })
 }
 
+function newExercise(req, res) {
+  res.render(`./admin/exercise_form.ejs`, { message: req.flash('adminMessage')} )
+}
+
+function createExercise(req, res) {
+  var newExercise = new Exercise(req.body)
+  newExercise.save(function(err, savedExercise) {
+    if (err) throw err
+    res.render(show)
+  })
+}
+
 module.exports = {
  index: index,
- show: show
+ show: show,
+ newExercise: newExercise,
+ createExercise: createExercise
 }

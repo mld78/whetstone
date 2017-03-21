@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 // consider changing it to function or something.
 var exerciseSchema = new mongoose.Schema({
 	name: String,
-	method: {type: mongoose.Schema.ObjectId, ref: 'Method'},
+	method: {type: mongoose.Schema.Types.ObjectId, ref: 'Method'},
 	difficulty: Number,
 	prompt: String,
 	tests: [Test.schema]

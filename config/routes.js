@@ -69,7 +69,12 @@ router.route('/dashboard')
 router.route('/exercises')
 	.get(exercisesController.index)
 
+router.route('/exercises/new')
+  .get(exercisesController.newExercise)
+  .post(exercisesController.createExercise)
+
 router.route('/exercises/:id')
 	.get(exercisesController.show)
+
 
 module.exports = router
