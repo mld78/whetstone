@@ -64,17 +64,29 @@ router.route('/dashboard')
 	.get(authenticateUser, usersController.dashboard)
 
 
+// Method Routes
+router.route('/methods')
+  .get(authenticateUser, methodsController.index)
+
+router.route('/methods/new')
+  .get(authenticateUser, methodsController.newMethod)
+  .post(authenticateUser, methodsController.createMethod)
+
+router.route('/methods/:id')
+  .get(authenticateUser, methodsController.show)
+
+
 // Exercises routes
 
 router.route('/exercises')
-	.get(exercisesController.index)
+	.get(authenticateUser, exercisesController.index)
 
 router.route('/exercises/new')
-  .get(exercisesController.newExercise)
-  .post(exercisesController.createExercise)
+  .get(authenticateUser, exercisesController.newExercise)
+  .post(authenticateUser, exercisesController.createExercise)
 
 router.route('/exercises/:id')
-	.get(exercisesController.show)
+	.get(authenticateUser, exercisesController.show)
 
 
 module.exports = router

@@ -18,7 +18,7 @@
         <label for="method">Method</label>
         <select class="form-control" name="method">
           <% methods.forEach(function(method) { %>
-            <option value=<%= method._id %>>
+            <option value=<%= method.id %>>
               <%= method.name %>
             </option>
           <% }) %>
