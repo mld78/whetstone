@@ -7,36 +7,45 @@
   <body>
     <%- include(`../partials/header`, {page: `edit exercise`}) %>
 
-    <form method="patch" action="/exercises/:id/edit">
+    <form method="post" action="/admin/exercises/<%= exercise.id %>/edit">
 
       <div class="form-group">
         <label for="name">Exercise Name</label>
-        <input class="form-control" type="text" name="name" id="exercise" placeholder="Exercise name">
+        <input class="form-control" type="text" name="name" id="exercise" placeholder="Exercise name" value=<%= exercise.name %>>
       </div>
 
       <div class="form-group">
         <label for="method">Method</label>
         <select class="form-control" name="method">
-          <% methods.forEach(function(method) { %>
-            <option value=<%= method.id %>>
-              <%= method.name %>
-            </option>
-          <% }) %>
+          <% methods.forEach(function(curMethod) { %>
+            <% if (exercise.method == curMethod.id) { %>
+              <option selected="selected" value="<%= curMethod.id %>">
+                <%= curMethod.name %>
+              </option>
+            <% } else { %>
+              <option value="<%= curMethod.id %>">
+                <%= curMethod.name %>
+              </option>
+          <% }}) %>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="language">Difficulty</label>
-        <input class="form-control" type="number" min="1" max="8" name="difficulty" id="difficulty" placeholder="Between 1 and 8">
+        <label for="difficulty">Difficulty</label>
+        <input class="form-control" type="number" min="1" max="8" name="difficulty" id="difficulty" placeholder="Between 1 and 8" value=<%= exercise.difficulty %>>
       </div>
 
       <div class="form-group">
         <label for="description">Prompt</label>
-        <textarea class="form-control" name="prompt" rows="3" cols="80" id="prompt" placeholder="Add description here..."></textarea>
+        <textarea class="form-control" name="prompt" rows="3" cols="80" id="prompt" placeholder="Add description here..."><%= exercise.prompt %> </textarea>
       </div>
 
       <input class="btn" type="submit">
     </form>
+    <form method="POST" action="/admin/exercises/<%= exercise.id %>/delete">
+      <button class="btn btn-danger"  type="submit" name="destroyExercise">
+        Delete
+      </button>
 
   </body>
 </html>

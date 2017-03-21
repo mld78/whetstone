@@ -82,7 +82,6 @@ router.route('/admin/methods/:id/edit')
 
 router.route('/admin/methods/:id/delete')
   .post(authenticateUser, methodsController.destroyMethod)
-  // .delete(authenticateUser, methodsController.destroyMethod)
 
 router.route('/admin/methods/:id')
   .get(authenticateUser, methodsController.show)
@@ -95,6 +94,13 @@ router.route('/admin/exercises')
 router.route('/admin/exercises/new')
   .get(authenticateUser, exercisesController.newExercise)
   .post(authenticateUser, exercisesController.createExercise)
+
+router.route('/admin/exercises/:id/edit')
+  .get(authenticateUser, exercisesController.editExercise)
+  .post(authenticateUser, exercisesController.updateExercise)
+
+router.route('/admin/exercises/:id/delete')
+  .post(authenticateUser, exercisesController.destroyExercise)
 
 router.route('/admin/exercises/:id')
 	.get(authenticateUser, exercisesController.show)
