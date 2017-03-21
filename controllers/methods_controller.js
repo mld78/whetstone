@@ -46,7 +46,7 @@ function show(req, res) {
 // EDIT
 function editMethod(req, res) {
   var id = req.params.id
-  Method.findById({_id: id}, function(err, method){
+  Method.findById({_id: id}, function(err, method) {
     if (err) throw err
     res.render(`./admin/edit_method_form.ejs`,
       {
@@ -63,7 +63,16 @@ function updateMethod(req, res) {
   Method.findById({_id: id}, function(err, updatedMethod) {
     if (err || !updatedMethod) throw err
 
-    res.json(updatedMethod)
+    if (req.body.name) updatedMethod.name = req.body.name
+    if (req.body.language) updatedMethod.language = req.body.language
+    if (req.body.description) updatedMethod.description = req.body.description
+    if (req.body.version_added) updatedMethod.version_added = req.body.version_added
+    if (req.body.docs_url) updatedMethod.docs_url = req.body.docs_url
+
+    updatedMethod.save(function(err, savedMethod) {
+      if (err) throw err
+      res.json(savedMethod)
+    })
   })
 }
 
