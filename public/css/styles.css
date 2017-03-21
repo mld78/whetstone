@@ -10,5 +10,16 @@ lighter blue: #9aa1ac
 */
 
 img {
-	width: 200px;
+	display: block;
+	margin: auto;
+	width: 400px
+}
+
+header {
+	background-color: #9aa1ac
+}
+
+body {
+	background-color: #667082;
+	text-align: center
 }
