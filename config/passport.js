@@ -27,22 +27,22 @@ passport.use('local-signup', new LocalStrategy({
 
 		 // Find a user with this e-mail
 		 User.findOne({ 'local.email' :  email }, function(err, user) {
-			 if (err) return callback(err);
+			 if (err) return callback(err)
 
 			 // If there already is a user with this email
 			 if (user) {
-				 return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
+				 return callback(null, false, req.flash('signupMessage', 'This email is already used.'))
 			 } else {
 			 // There is no email registered with this email
 
 				 // Create a new user
-				 var newUser            = new User();
-				 newUser.local.email    = email;
-				 newUser.local.password = newUser.encrypt(password);
+				 var newUser            = new User()
+				 newUser.local.email    = email
+				 newUser.local.password = newUser.encrypt(password)
 
 				 newUser.save(function(err) {
-					 if (err) throw err;
-					 return callback(null, newUser);
+					 if (err) throw err
+					 return callback(null, newUser)
 				 });
 			 }
 		 });
@@ -93,20 +93,19 @@ passport.use('local-signup', new LocalStrategy({
 	               // if there is an error, stop everything and return that
 	               // ie an error connecting to the database
 	               if (err)
-	                   return done(err);
-
+	                   return done(err)
 	               // if the user is found, then log them in
 	               if (user) {
-	                   return done(null, user); // user found, return that user
+	                   return done(null, user) // user found, return that user
 	               } else {
 	                   // if there is no user found with that facebook id, create them
-	                   var newUser            = new User();
+	                   var newUser = new User()
 
 	                   // set all of the facebook information in our user model
-	                   newUser.facebook.id    = profile.id; // set the users facebook id
-	                   newUser.facebook.token = token; // we will save the token that facebook provides to the user
-	                   newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
-	                   newUser.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+	                   newUser.facebook.id    = profile.id // set the users facebook id
+	                   newUser.facebook.token = token // we will save the token that facebook provides to the user
+	                   newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName // look at the passport user profile to see how names are returned
+	                   newUser.facebook.email = profile.emails[0].value // facebook can return multiple emails so we'll take the first
 	                  //  console.log(profile)
 
 	                   // save our user to the database
@@ -121,6 +120,4 @@ passport.use('local-signup', new LocalStrategy({
 	           })
 	       })
 	   }))
-//  =========================END FACEBOOK=====================================
-
 }
