@@ -60,3 +60,9 @@ body {
 .form-group {
 	font-weight: bold
 }
+
+label {
+	display: inline-block;
+	width: 210px;
+	text-align: right;
+}
