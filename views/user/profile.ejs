@@ -13,9 +13,9 @@
     <%- include(`../partials/header`) %>
 
 <div id="profile-container">
-  
+
     <!-- User data pulled in -->
-    <h2><%= user.facebook.email || user.local.email %></h2>
+    <h2>Chef: <%= user.facebook.email || user.local.email %></h2>
 
     <p>Title:
         <%= user.local.title %>
