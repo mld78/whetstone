@@ -6,8 +6,8 @@ var mongoose = require('mongoose'),
 // consider changing it to function or something.
 var userSchema = new mongoose.Schema({
 	local : {
-    	title: String,
-    	name: String,
+    title: String,
+    name: String,
 		email: String,
 		password: String
 	},

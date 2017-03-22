@@ -1,4 +1,5 @@
 var passport = require("passport"),
+    User = require("../models/user"),
     hackerEarth = require('hackerearth-node')
 
 // Authentication: sign up and log in
@@ -36,6 +37,7 @@ function getLogout(request, response) {
 }
 
 // Facebook authentication
+
 function getFacebook(request, response) {
   var signupStrategy = passport.authenticate('facebook', {
     scope : 'email'
@@ -52,6 +54,13 @@ function getFacebookCallback(request, response) {
   return loginProperty(request, response)
 }
 
+// Profile
+
+function showProfile(request, response) {
+  response.render('./user/profile')
+}
+
+
 // Dashboard
 
 function dashboard(request, response){
@@ -63,7 +72,6 @@ function dashboard(request, response){
 function exercises(request, response){
   response.render('./user/exercises')
 }
-
 
 function runCode(request, response){
   var myHackerEarth = new hackerEarth(
@@ -81,8 +89,6 @@ function runCode(request, response){
       response.json(data)
   });
 }
-
-
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
@@ -94,5 +100,6 @@ module.exports = {
 
   dashboard: dashboard,
   runCode: runCode,
-  exercises: exercises
+  exercises: exercises,
+  showProfile: showProfile
 }
