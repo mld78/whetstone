@@ -1,14 +1,6 @@
 // Global variables
-
-
-
  var  $output = $('#output p'),
     $runBtn = $('#run')
-
-// Janky solution
-// $runBtn.on('click', function() {
-// 	$output.text(`${eval($input.val())}`)
-// })
 
 // Helpers
 
