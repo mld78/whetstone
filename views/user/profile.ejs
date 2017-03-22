@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <%- include(`../partials/head`) %>
-  <%- include(`../partials/scripts`) %>
+    <%- include(`../partials/head`)  %>
+        <%- include(`../partials/scripts`) %>
+            <%- include(`../partials/header`) %>
 </head>
 
 <body>
-  <%- include(`../partials/header`) %>
-   <!-- Edit or Delete User info page -->
-  <h1><%= user.facebook.email || user.local.email %></h1>
-
-    // User data pulled in
-    <h2>User information</h2>
+    <!-- User data pulled in -->
+    <h2><%= user.facebook.email || user.local.email %></h2>
 
     <p>Title:
         <%= user.local.title %>
-    </p><br>
+    </p>
 
     <p>Name:
         <%= user.local.name %>
-    </p><br>
+    </p>
 
     <p>Email:
         <%= user.facebook.email || user.local.email %>
-    </p><br>
+    </p>
 
     <p>Password:
         <%= user.local.password %>
     </p><br>
 
     <!-- Buttons to edit and delete -->
-    <a href="/user/<%= user._id %>" class="btn btn-default">Edit</a>
+    <a href="/user/<%= user._id %>" class="btn btn-default">Edit</a> or
     <a href="/user/<%= user._id %>/delete" id="delete-account" class="btn btn-danger">Delete Account</a>
 
     <script type="text/javascript">

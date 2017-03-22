@@ -6,6 +6,7 @@
 
 	<div class="right">
 <% if (user) { %>
+	<a href="/profile/<%= user.facebook.id || user.local.id%>">Profile</a>
 	<a href="/dashboard">Dashboard</a>
 	<a href="/logout">Log Out</a>
 <% } else { %>
