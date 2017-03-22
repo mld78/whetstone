@@ -76,6 +76,34 @@ function editProfile(request, response) {
 
 
 //Update profile
+function updateProfile(request, response){
+  var id = user.id
+  // var id = request.params.id
+  console.log(id)
+
+  User.findById({_id: id}, function(err, updatedUser) {
+    if (err || !updatedUser) throw err
+    console.log(request.body)
+    if (request.body.title) updatedUser.local.title = request.body.title
+
+    // if (request.body.password) updatedUser.setPassword(request.body.password, function(){
+    //   updatedUser.save(function(err, savedUser) {
+    //     if (err) throw err
+    //     response.json(savedUser)
+    //     // response.redirect('/profile')
+    //   })
+    // })
+    if (request.body.name) updatedUser.local.name = request.body.name
+    if (request.body.email) updatedUser.local.email = request.body.email
+
+    updatedUser.save(function(err, savedUser) {
+      if (err) throw err
+      // response.json(savedUser)
+      response.redirect('/profile')
+    })
+
+  })
+}
 
 
 // Dashboard
@@ -122,5 +150,6 @@ module.exports = {
   runCode: runCode,
   exercises: exercises,
   showProfile: showProfile,
-  editProfile: editProfile
+  editProfile: editProfile,
+  updateProfile: updateProfile
 }
