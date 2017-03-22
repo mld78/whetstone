@@ -60,6 +60,22 @@ function getFacebookCallback(request, response) {
 function showProfile(request, response) {
   response.render('./user/profile')
 }
+// Edit profile
+function editProfile(request, response) {
+  response.render(`./user/edit_profile.ejs`)
+  // var id = request.params.id
+  // User.findById({_id: id}, function(err, user) {
+  //   if (err) throw err
+  //     {
+  //       message: request.flash(`adminMessage`),
+  //       user: user
+  //     })
+  // })
+}
+
+
+
+//Update profile
 
 
 // Dashboard
@@ -105,5 +121,6 @@ module.exports = {
   dashboard: dashboard,
   runCode: runCode,
   exercises: exercises,
-  showProfile: showProfile
+  showProfile: showProfile,
+  editProfile: editProfile
 }

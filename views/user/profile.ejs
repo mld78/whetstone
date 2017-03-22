@@ -15,14 +15,14 @@
 <div id="profile-container">
 
     <!-- User data pulled in -->
-    <h2>Chef: <%= user.facebook.email || user.local.email %></h2>
+    <h2>Chef: <%= user.facebook.name || user.local.name %></h2>
 
     <p>Title:
         <%= user.local.title %>
     </p>
 
     <p>Name:
-        <%= user.local.name %>
+        <%= user.local.name || user.facebook.name %>
     </p>
 
     <p>Email:
@@ -31,16 +31,9 @@
     <br>
 
     <!-- Buttons to edit and delete -->
-    <a href="/user/<%= user._id %>" class="btn btn-default">Edit</a> or
-    <a href="/user/<%= user._id %>/delete" id="delete-account" class="btn btn-danger">Delete Account</a>
+    <a href="/profile/edit" class="btn btn-default">Edit</a>
 
-    <script type="text/javascript">
-        $('#delete-account').on('click', function(e) {
-            if (!confirm("Are you sure you want to delete your user account?")) {
-                e.preventDefault()
-            }
-        })
-    </script>
+
   </div>
 </body>
 

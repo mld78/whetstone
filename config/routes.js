@@ -71,6 +71,9 @@ router.route('/exercises')
 router.route('/profile')
   .get(authenticateUser, usersController.showProfile)
 
+router.route('/profile/edit')
+  .get(authenticateUser, usersController.editProfile)
+
 // Method Routes
 router.route('/admin/methods')
   .get(authenticateUser, methodsController.index)
