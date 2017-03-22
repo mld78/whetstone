@@ -24,6 +24,13 @@ function authenticateUser(request, response, next) {
   response.redirect('/login')
 }
 
+function authenticateAdmin(request, response, next) {
+  // Set admin context and others things like admin templates
+  if (request.user.local.isAdmin) return next();
+
+  response.redirect('/dashboard')
+};
+
 ///// ROUTES /////
 
 // Root path
@@ -73,7 +80,7 @@ router.route('/profile')
 
 // Method Routes
 router.route('/admin/methods')
-  .get(authenticateUser, methodsController.index)
+  .get(authenticateUser, authenticateAdmin, methodsController.index)
 
 router.route('/admin/methods/new')
   .get(authenticateUser, methodsController.newMethod)
