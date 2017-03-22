@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis|Source+Serif+Pro');
-/*
-font-family: 'Dosis', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Dosis%7CSource+Code+Pro%7CSource+Serif+Pro');/*
+/*font-family: 'Dosis', sans-serif;
 font-family: 'Source Serif Pro', serif;
+font-family: 'Source Code Pro', monospace;*/
 */
 
 /*
@@ -12,7 +12,14 @@ lighter blue: #9aa1ac
 /* General Styles */
 
 img {
-	width: 200px;
+	width: 300px;
+}
+
+#homepage-container {
+	position: fixed;
+  top: 10%;
+  left: 35%;
+	line-height: 300%
 }
 
 
@@ -31,6 +38,7 @@ img {
 
 	border: 1px solid black;
 }
+
 #output {
 	width: 400px;
 	height: 200px;
@@ -49,13 +57,11 @@ img {
 .links .left {
 	float:left;
 	font-size: 25px;
-	word-spacing: 10px;
 }
 
 .links .right {
 	float: right;
 	font-size: 25px;
-	word-spacing: 10px
 }
 
 a:link {
@@ -91,4 +97,24 @@ label {
 	display: inline-block;
 	width: 210px;
 	text-align: right;
+}
+
+#dashboard-container {
+	position: fixed;
+  top: 20%;
+  left: 40%;
+	line-height: 400%
+}
+
+ .exercises {
+	margin-top: 50px;
+	float: left;
+	font-size: 25px;
+}
+
+#profile-container {
+	position: fixed;
+  top: 20%;
+  left: 25%;
+	line-height: 300%
 }
