@@ -5,17 +5,34 @@
   </head>
   <body>
     <%- include(`../partials/header`) %>
-<div class="exercises">
+<div class="exercises container">
     <div>
-        <!-- <h1>Today's Exercises</h1> -->
         <div id="prompt">
-            <p>Given a single dash as a string, return its type as a string - "em", "en", or "hyphen".
-    This might be a good resource: http://www.thepunctuationguide.com/hyphen-and-dashes.html.</p><br>
+          <h1><%= exercise.name %></h1>
+          <p><%= exercise.prompt %></p>
         </div>
-        <textarea id="input"></textarea><br><br><br><br>
-        <button id="run">Run</button>
+        <textarea id="input">function <%= exercise.name %>(str){
+  
+}</textarea>
         <div id="output"><p></p></div>
-        <div id="tests"><h1>Tests</h1><p></p></div>
+        <br>
+        <button id="run">run</button>
+        <button disabled="true" id="submit">submit</button>
+
+        <table>
+          <tr>
+            <th></th>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+        </table>
+        <% exercise.tests.forEach(function(test){ %>
+        <ul>
+          <li><%= test.explanation %></li>
+        <% }) %>
+        </ul>
+
     </div>
     <%- include(`../partials/scripts`) %>
   </body>

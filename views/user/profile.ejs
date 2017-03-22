@@ -28,10 +28,7 @@
     <p>Email:
         <%= user.facebook.email || user.local.email %>
     </p>
-
-    <p>Password:
-        <%= user.local.password %>
-    </p><br>
+    <br>
 
     <!-- Buttons to edit and delete -->
     <a href="/user/<%= user._id %>" class="btn btn-default">Edit</a> or

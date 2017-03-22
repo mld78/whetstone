@@ -1,5 +1,6 @@
 var passport = require("passport"),
     User = require("../models/user"),
+    Exercise = require("../models/exercise"),
     hackerEarth = require('hackerearth-node')
 
 // Authentication: sign up and log in
@@ -70,7 +71,10 @@ function dashboard(request, response){
 // Exercises
 
 function exercises(request, response){
-  response.render('./user/exercises')
+    Exercise.findOne({name: 'dashType'}, function(err, exercise) {
+    if (err) throw err
+    response.render('./user/exercises', {exercise: exercise})
+  })
 }
 
 function runCode(request, response){

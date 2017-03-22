@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis%7CSource+Code+Pro%7CSource+Serif+Pro');/*
-/*font-family: 'Dosis', sans-serif;
-font-family: 'Source Serif Pro', serif;
-font-family: 'Source Code Pro', monospace;*/
-*/
 
+/*
+font-family: 'Dosis', sans-serif;
+font-family: 'Source Serif Pro', serif;
+font-family: 'Source Code Pro', monospace;
+*/
 /*
 dark blue: #667082
 lighter blue: #9aa1ac
@@ -11,8 +12,30 @@ lighter blue: #9aa1ac
 
 /* General Styles */
 
+body {
+	min-width: 500px;
+}
+
+ul {
+	list-style-type: none;
+}
+
 img {
 	width: 300px;
+}
+
+button {
+	font-family: 'Dosis', sans-serif;
+	border: none;
+	padding: 2px 10px 5px;
+	outline: none;
+	cursor: pointer;
+}
+
+.container {
+	padding: 0 30px;
+	min-width: 500px;
+	margin: 0 auto;
 }
 
 #homepage-container {
@@ -22,55 +45,112 @@ img {
 	line-height: 300%
 }
 
+/* Nav Bar */
 
-/* Exercises Styles */
-
-#run {
-	display: block;
-	cursor: pointer;
-	margin: 10px auto;
-}
-
-#input {
-	padding: 10px;
-	width: 400px;
-	height: 200px;
-
-	border: 1px solid black;
-}
-
-#output {
-	width: 400px;
-	height: 200px;
-	background-color: #9aa1ac;
-	color: white;
-	margin: 0 auto;
-
-	border: 1px solid black;
-}
-
-* {
-   margin: 0px;
-   padding: 0px;
+.links {
+	background-color: #34373d;
+	padding: 7px 10px;
+	height: 28px;
+	font-size: 22px;
 }
 
 .links .left {
 	float:left;
-	font-size: 25px;
 }
 
 .links .right {
 	float: right;
-	font-size: 25px;
 }
 
-a:link {
-    color: black;
-		text-decoration: none
+.links a{
+	margin: 0 5px;
+	color: #9aa1ac;
 }
 
-a:visited {
-    color: white
+.links a:hover {
+    color: #fff
+}
+
+/* Exercises Styles */
+
+.exercises {
+	margin-top: 50px;
+	font-size: 20px;
+	color: #34373d;
+}
+
+#run {
+	margin: 10px 5px;
+	background-color: #34373d;
+	border:2px solid #fff;
+	color:#fff;
+}
+
+#run:hover {
+	background-color:#fff;
+	border:2px solid #fff;
+	color: #34373d;
+}
+
+#submit {
+	margin: 10px 5px;
+	background-color:#9aa1ac;
+	border:2px solid #34373d;
+	color: #34373d;
+}
+
+#submit:hover {
+	background-color: #34373d;
+	border:2px solid #34373d;
+	color:#9aa1ac;
+}
+
+#submit:disabled {
+	background-color:#34373d;
+	border:2px solid #9aa1ac;
+	color: #9aa1ac;
+}
+
+#submit:disabled:hover {
+	cursor: default;
+}
+
+
+#input {
+	outline: none;
+	resize: none;
+	border: none;
+
+	padding: 10px;
+	width: 400px;
+	height: 250px;
+	
+	color: #9aa1ac;
+	background-color: #34373d;
+	font-family: monospace;
+	font-size: 16px;
+}
+
+#output {
+	padding: 10px;
+	width: 400px;
+	height: 50px;
+	margin: 0 auto;
+	color: #34373d;
+	background-color: #9aa1ac;
+	font-family: monospace;
+	font-size: 16px;
+	overflow: scroll;
+}
+
+#output p {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+}
+a {
+    color: white;
+	text-decoration: none
 }
 
 a:hover {
@@ -81,12 +161,6 @@ body {
 	font-family: 'Dosis', sans-serif;
 	background-color: #667082;
 	text-align: center
-}
-
-.container p {
-	margin-top: 150px;
-	float: left;
-	font-size: 25px
 }
 
 .form-group {
@@ -100,21 +174,11 @@ label {
 }
 
 #dashboard-container {
-	position: fixed;
-  top: 20%;
-  left: 40%;
-	line-height: 400%
-}
-
- .exercises {
-	margin-top: 50px;
-	float: left;
-	font-size: 25px;
+	padding-top: 50px;
+	line-height: 40px;
 }
 
 #profile-container {
-	position: fixed;
-  top: 20%;
-  left: 25%;
-	line-height: 300%
+	padding-top: 50px;
+	line-height: 40px;
 }
