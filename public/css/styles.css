@@ -74,44 +74,31 @@ button {
 /* Exercises Styles */
 
 .exercises {
-	margin-top: 50px;
+	margin-top: 30px;
 	font-size: 20px;
 	color: #34373d;
 }
 
-#run {
+.exercise-btn {
 	margin: 10px 5px;
 	background-color: #34373d;
 	border:2px solid #fff;
 	color:#fff;
 }
 
-#run:hover {
+.exercise-btn:hover {
 	background-color:#fff;
 	border:2px solid #fff;
 	color: #34373d;
 }
 
-#submit {
-	margin: 10px 5px;
-	background-color:#9aa1ac;
-	border:2px solid #34373d;
-	color: #34373d;
-}
-
-#submit:hover {
-	background-color: #34373d;
-	border:2px solid #34373d;
-	color:#9aa1ac;
-}
-
-#submit:disabled {
+.exercise-btn:disabled {
 	background-color:#34373d;
 	border:2px solid #9aa1ac;
 	color: #9aa1ac;
 }
 
-#submit:disabled:hover {
+.exercise-btn:disabled:hover {
 	cursor: default;
 }
 
@@ -148,6 +135,40 @@ button {
 	padding: 0;
 	margin: 0;
 }
+
+#tests {
+	box-sizing: border-box;
+	width: 420px;
+	padding: 10px;
+	margin: 0 auto;
+
+	border:3px solid #9aa1ac;
+
+	font-family: monospace;
+	font-size: 16px;
+	text-align: left;
+}
+
+#tests th {
+	text-transform: uppercase;
+	color: #9aa1ac;
+}
+
+#tests tr.passing {
+	color: #fff;
+}
+
+#tests.passing {
+	border:3px solid #fff;
+}
+
+
+
+
+
+
+
+
 a {
     color: white;
 	text-decoration: none

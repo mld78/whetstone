@@ -71,7 +71,7 @@ function dashboard(request, response){
 // Exercises
 
 function exercises(request, response){
-    Exercise.findOne({name: 'dashType'}, function(err, exercise) {
+    Exercise.findOne({name: 'hello'}, function(err, exercise) {
     if (err) throw err
     response.render('./user/exercises', {exercise: exercise})
   })
@@ -91,8 +91,9 @@ function runCode(request, response){
   myHackerEarth.run(config,function(err,data){
       if (err) throw err
       response.json(data)
-  });
+  })
 }
+
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,

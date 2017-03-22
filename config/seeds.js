@@ -31,13 +31,12 @@ var fixedMethod = new Method({
 	docs_url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt'
 })
 
-var exercises = [	
+var exercises = [
 {	name: 'dashType',
 	// enter the method name, the seeds file will take care of finding the id
 	method: fixedMethod.id,
-	difficulty: 2,
-	prompt: 'Given a single dash as a string, return its type as a string - "em", "en", or "hyphen".\
-	This might be a good resource: http://www.thepunctuationguide.com/hyphen-and-dashes.html.',		
+	difficulty: 4,
+	prompt: 'Given a single dash as a string, return its type as a string - "em", "en", or "hyphen".',		
 	tests: [
 		{
 			explanation: 'Testing the three basic types, should return em.',
@@ -53,6 +52,34 @@ var exercises = [
 			explanation: 'Testing the three basic types, should return hyphen.',
 			invocation: "dashType('–')",
 			expectation: 'hyphen'
+		},
+	]
+},
+{	name: 'hello',
+	// enter the method name, the seeds file will take care of finding the id
+	method: fixedMethod.id,
+	difficulty: 1,
+	prompt: 'Write a function which takes a name as an argument, and returns "Hello, <name>." - or just "Hello." if no name is given.',		
+	tests: [
+		{
+			explanation: 'Test without name.',
+			invocation: "hello()",
+			expectation: 'Hello.'
+		},
+		{
+			explanation: 'Test with name.',
+			invocation: "hello('Bob')",
+			expectation: 'Hello, Bob.'
+		},
+		{
+			explanation: 'Test with longer name.',
+			invocation: "hello('David Foster Wallace')",
+			expectation: 'Hello, David Foster Wallace.'
+		},
+		{
+			explanation: 'Test with random string.',
+			invocation: "hello('fasdfa124isbi45')",
+			expectation: 'Hello, fasdfa124isbi45.'
 		},
 	]
 }
