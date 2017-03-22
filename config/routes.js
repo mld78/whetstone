@@ -88,19 +88,19 @@ router.route('/profile/delete')
 
 
 // Method Routes
-router.route('/admin/methods')
-  .get(authenticateUser, authenticateAdmin, methodsController.index)
+router.route('/methods')
+  .get(authenticateUser, methodsController.index)
 
 router.route('/admin/methods/new')
-  .get(authenticateUser, methodsController.newMethod)
-  .post(authenticateUser, methodsController.createMethod)
+  .get(authenticateUser, authenticateAdmin,  methodsController.newMethod)
+  .post(authenticateUser, authenticateAdmin,  methodsController.createMethod)
 
 router.route('/admin/methods/:id/edit')
-  .get(authenticateUser, methodsController.editMethod)
-  .post(authenticateUser, methodsController.updateMethod)
+  .get(authenticateUser, authenticateAdmin,  methodsController.editMethod)
+  .post(authenticateUser, authenticateAdmin,  methodsController.updateMethod)
 
 router.route('/admin/methods/:id/delete')
-  .post(authenticateUser, methodsController.destroyMethod)
+  .post(authenticateUser, authenticateAdmin,  methodsController.destroyMethod)
 
 router.route('/admin/methods/:id')
   .get(authenticateUser, methodsController.show)

@@ -9,7 +9,9 @@ var Method = require('../models/method')
 function index(req, res) {
   Method.find({}, function(err, methods) {
     if (err) throw err
-    res.json(methods)
+    res.render('./user/methods_index.ejs', {
+      methods: methods
+    })
   })
 }
 

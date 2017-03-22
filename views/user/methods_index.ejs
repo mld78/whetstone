@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(`../partials/head`) %>
+    <%- include(`../partials/scripts`) %>
+
+  </head>
+  <body>
+    <%- include(`../partials/header`) %>
+
+    <h1>All of the methods you can practice!</h1>
+
+    <div>
+      <article>
+        <ul>
+          <% methods.forEach(function(method) { %>
+            <a href="/method/:id" value=<%= method.id %>>
+            <h3>  <%= method.name %> </h3>
+            </a>
+          <% }) %>
+
+
+      </article>
+    </div>
+
+
+
+  </body>
+</html>
