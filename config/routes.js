@@ -75,6 +75,9 @@ router.route('/profile/edit')
   .get(authenticateUser, usersController.editProfile)
   .post(authenticateUser, usersController.updateProfile)
 
+router.route('/profile/delete')
+  .post(authenticateUser, usersController.destroyUser)
+
 
 
 // Method Routes

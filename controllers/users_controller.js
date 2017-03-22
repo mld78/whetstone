@@ -105,6 +105,21 @@ function updateProfile(request, response){
   })
 }
 
+//Delete Profile
+function destroyUser(request, response) {
+  var id = user.id
+  // var areYouSure = prompt(`ARE YOU SURE YOU WANT TO DELETE THIS METHOD?\nType: "YES DELETE METHOD"\n\n${req.body}`)
+  // if (areYouSure === "YES DELETE METHOD") {
+
+    User.remove({_id: id}, function(err) {
+      if (err) response.json( {message: `Could not delete Method b/c: ${err}`} )
+
+      response.redirect('/login')
+    })
+
+  // }
+}
+
 
 // Dashboard
 
@@ -151,5 +166,6 @@ module.exports = {
   exercises: exercises,
   showProfile: showProfile,
   editProfile: editProfile,
-  updateProfile: updateProfile
+  updateProfile: updateProfile,
+  destroyUser: destroyUser
 }
