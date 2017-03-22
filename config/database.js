@@ -1,8 +1,7 @@
 var mongoose = require('mongoose')
 
 // Use different database URIs based on whether an env var exists.
-var dbUri = process.env.MONGODB_URI ||
-            	'mongodb://localhost/whetstone'
+var dbUri = process.env.MONGODB_URI || 'mongodb://localhost/whetstone'
             // 'mongodb://localhost/' + process.env.LOCAL_DB
 
 if (!process.env.MONGODB_URI) {

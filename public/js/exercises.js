@@ -23,10 +23,15 @@ $runBtn.on('click', function() {
 		url: '/exercises',
 		data: {
 			source: source
+			// piggyback tests on post request
 		}
 	}).then( 
 		function(data){
 			$output.html(JSON.parse(data).run_status.output_html)
+		
+			// for each test, compare what came back to
+			// what was expected
+			// update DOM (either show submit or don't)
 		}
 	)
 })
