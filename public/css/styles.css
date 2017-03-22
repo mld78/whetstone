@@ -12,16 +12,12 @@ lighter blue: #9aa1ac
 
 /* General Styles */
 
-body {
+/*body {
 	min-width: 500px;
-}
+}*/
 
 ul {
 	list-style-type: none;
-}
-
-img {
-	width: 300px;
 }
 
 button {
@@ -46,6 +42,22 @@ button {
 }
 
 /* Nav Bar */
+
+#title-container img {
+	width: 350px;
+}
+
+.links img {
+	width:30px;
+	float:left;
+}
+
+.links .right img {
+position: absolute;
+right: 0px;
+bottom: 0px;
+width: 50px
+}
 
 .links {
 	background-color: #34373d;
@@ -124,7 +136,7 @@ button {
 	padding: 10px;
 	width: 400px;
 	height: 250px;
-	
+
 	color: #9aa1ac;
 	background-color: #34373d;
 	font-family: monospace;
