@@ -47,9 +47,6 @@ app.use(function (req, res, next) {
   next()
 })
 
-// This middleware will allow admins to access admin specific pages.
-
-
 // set up routes
 var routes = require('./config/routes')
 app.use('/', routes)
