@@ -9,7 +9,8 @@ var userSchema = new mongoose.Schema({
     title: String,
     name: String,
 		email: String,
-		password: String
+		password: String,
+		isAdmin: { type: Boolean, default: false }
 	},
 	facebook: {
 		id: String,
