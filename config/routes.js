@@ -73,6 +73,7 @@ router.route('/profile')
 
 router.route('/profile/edit')
   .get(authenticateUser, usersController.editProfile)
+  .post(authenticateUser, usersController.updateProfile)
 
 // Method Routes
 router.route('/admin/methods')
