@@ -7,7 +7,7 @@
   <body>
     <%- include(`../partials/header`, {page: `edit method`}) %>
 
-    <form method="post" action="/methods/<%= method.id %>/edit">
+    <form method="post" action="/admin/methods/<%= method.id %>/edit">
 
       <div class="form-group">
         <label for="name">Method</label>
@@ -36,9 +36,10 @@
 
       <input class="btn" type="submit">
     </form>
-
-      <button class="btn btn-danger" type="button" name="destroyMethod" method="delete" onclick="deleteMethod()">
-
-      </script></button>
+    <form method="POST" action="/admin/methods/<%= method.id %>/delete">
+      <button class="btn btn-danger"  type="submit" name="destroyMethod">
+        Delete
+      </button>
+    </form>
   </body>
 </html>

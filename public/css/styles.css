@@ -22,14 +22,17 @@ img {
 	line-height: 300%
 }
 
-button {
-	display: block;
-	cursor: pointer;
-}
 
 /* Exercises Styles */
 
+#run {
+	display: block;
+	cursor: pointer;
+	margin: 10px auto;
+}
+
 #input {
+	padding: 10px;
 	width: 400px;
 	height: 200px;
 
@@ -39,8 +42,9 @@ button {
 #output {
 	width: 400px;
 	height: 200px;
-	background-color: purple;
+	background-color: #9aa1ac;
 	color: white;
+	margin: 0 auto;
 
 	border: 1px solid black;
 }

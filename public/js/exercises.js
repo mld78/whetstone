@@ -1,29 +1,37 @@
-console.log('exercises.js connect.')
-
 // Global variables
 
-$input = $('#input')
-$output = $('#output p')
-$runBtn = $('#run')
+
+
+ var  $output = $('#output p'),
+    $runBtn = $('#run')
 
 // Janky solution
 // $runBtn.on('click', function() {
 // 	$output.text(`${eval($input.val())}`)
 // })
 
+// Helpers
+
+function formatJS(JS){
+	return JS
+}
+
 $runBtn.on('click', function() {
+	var source = formatJS($('#input').val())
 	$.ajax({
 		type: 'POST',
-		url: 'https://api.hackerearth.com/v3/code/run/',
+		url: '/exercises',
 		data: {
-			client_secret: f9b2f2ccf14ecad5c5119bc986c9d96f7598191a,
-			source:'function hello(){return "Hello"} hello();',
-			// source:'$input.val()',
-			lang: 'JAVASCRIPT'
+			source: source
+			// piggyback tests on post request
 		}
 	}).then( 
 		function(data){
-			$output.text(data)
+			$output.html(JSON.parse(data).run_status.output_html)
+		
+			// for each test, compare what came back to
+			// what was expected
+			// update DOM (either show submit or don't)
 		}
 	)
 })
