@@ -3,11 +3,17 @@
 
 <head>
     <%- include(`../partials/head`)  %>
-        <%- include(`../partials/scripts`) %>
-            <%- include(`../partials/header`) %>
+    <%- include(`../partials/scripts`) %>
+
 </head>
 
+
 <body>
+
+    <%- include(`../partials/header`) %>
+
+<div id="profile-container">
+  
     <!-- User data pulled in -->
     <h2><%= user.facebook.email || user.local.email %></h2>
 
@@ -38,6 +44,7 @@
             }
         })
     </script>
+  </div>
 </body>
 
 </html>

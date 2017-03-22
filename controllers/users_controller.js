@@ -36,6 +36,7 @@ function getLogout(request, response) {
 }
 
 // Facebook authentication
+
 function getFacebook(request, response) {
   var signupStrategy = passport.authenticate('facebook', {
     scope : 'email'
@@ -55,17 +56,11 @@ function getFacebookCallback(request, response) {
 // Profile
 
 function showProfile(request, response) {
-  var id = request.params.id
-
-  User.findById(id, function(err, user) {
-    if (err) throw err
-    response.render('./user/profile', {user: user})
-  })
+  response.render('./user/profile')
 }
 
 
 // Dashboard
-
 
 function dashboard(request, response){
   response.render('./user/dashboard')
@@ -83,7 +78,6 @@ function exercises(request, response){
   // })
 }
 
-
 function runCode(request, response){
   response.render('./user/exercises')
   // User.findById({user}, function(err, user){
@@ -91,8 +85,6 @@ function runCode(request, response){
   //   response.render('./user/dashboard', {user: user})
   // })
 }
-
-
 
 module.exports = {
   getLogin: getLogin,

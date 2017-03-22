@@ -12,7 +12,14 @@ lighter blue: #9aa1ac
 /* General Styles */
 
 img {
-	width: 200px;
+	width: 300px;
+}
+
+#homepage-container {
+	position: fixed;
+  top: 10%;
+  left: 35%;
+	line-height: 300%
 }
 
 button {
@@ -28,6 +35,7 @@ button {
 
 	border: 1px solid black;
 }
+
 #output {
 	width: 400px;
 	height: 200px;
@@ -87,15 +95,22 @@ label {
 	text-align: right;
 }
 
-.center {
-  position: fixed;
-  top: 25%;
+#dashboard-container {
+	position: fixed;
+  top: 20%;
   left: 40%;
-	line-height: 500%
+	line-height: 400%
 }
 
  .exercises {
 	margin-top: 50px;
 	float: left;
 	font-size: 25px;
+}
+
+#profile-container {
+	position: fixed;
+  top: 20%;
+  left: 25%;
+	line-height: 300%
 }

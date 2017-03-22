@@ -68,8 +68,8 @@ router.route('/exercises')
 	.get(usersController.exercises)
 	.post(usersController.runCode)
 
-router.route('/profile/:id')
-  .get(usersController.showProfile)
+router.route('/profile')
+  .get(authenticateUser, usersController.showProfile)
 
 // Method Routes
 router.route('/admin/methods')
