@@ -60,6 +60,65 @@ function getFacebookCallback(request, response) {
 function showProfile(request, response) {
   response.render('./user/profile')
 }
+// Edit profile
+function editProfile(request, response) {
+  response.render(`./user/edit_profile.ejs`)
+  // var id = request.params.id
+  // User.findById({_id: id}, function(err, user) {
+  //   if (err) throw err
+  //     {
+  //       message: request.flash(`adminMessage`),
+  //       user: user
+  //     })
+  // })
+}
+
+
+
+//Update profile
+function updateProfile(request, response){
+  var id = user.id
+  // var id = request.params.id
+  console.log(id)
+
+  User.findById({_id: id}, function(err, updatedUser) {
+    if (err || !updatedUser) throw err
+    console.log(request.body)
+    if (request.body.title) updatedUser.local.title = request.body.title
+
+    // if (request.body.password) updatedUser.setPassword(request.body.password, function(){
+    //   updatedUser.save(function(err, savedUser) {
+    //     if (err) throw err
+    //     response.json(savedUser)
+    //     // response.redirect('/profile')
+    //   })
+    // })
+    if (request.body.name) updatedUser.local.name = request.body.name
+    if (request.body.email) updatedUser.local.email = request.body.email
+
+    updatedUser.save(function(err, savedUser) {
+      if (err) throw err
+      // response.json(savedUser)
+      response.redirect('/profile')
+    })
+
+  })
+}
+
+//Delete Profile
+function destroyUser(request, response) {
+  var id = user.id
+  // var areYouSure = prompt(`ARE YOU SURE YOU WANT TO DELETE THIS METHOD?\nType: "YES DELETE METHOD"\n\n${req.body}`)
+  // if (areYouSure === "YES DELETE METHOD") {
+
+    User.remove({_id: id}, function(err) {
+      if (err) response.json( {message: `Could not delete Method b/c: ${err}`} )
+
+      response.redirect('/login')
+    })
+
+  // }
+}
 
 
 // Dashboard
@@ -106,5 +165,8 @@ module.exports = {
   dashboard: dashboard,
   runCode: runCode,
   exercises: exercises,
-  showProfile: showProfile
+  showProfile: showProfile,
+  editProfile: editProfile,
+  updateProfile: updateProfile,
+  destroyUser: destroyUser
 }

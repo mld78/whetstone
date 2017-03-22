@@ -8,7 +8,7 @@
     <%- include(`../partials/header`) %>
     <div id="dashboard-container">
         <!-- <h1>Dashboard</h1> -->
-        <h1>Chef: <%= user.facebook.email || user.local.email %></h1>
+        <h1>Chef: <%= user.facebook.name || user.local.name %></h1>
 
         <% var completeCount = user.completed_exercises.length %>
         <% var today = new Date() %>
