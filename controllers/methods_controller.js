@@ -39,14 +39,14 @@ function createMethod(req, res) {
 // SHOW
 function show(req, res) {
   var id = req.params.id
-  Exercise.find({}, function(err, exercise){
+  Exercise.find({}, function(err, exercises){
     if (err) throw err
 
   Method.findById(id, function(err, method) {
     if (err) throw err
     res.render('./user/methods_show.ejs', {
-      method: method,
-      exercise: exercise
+      exercises: exercises,
+      method: method
     })
   })
  })

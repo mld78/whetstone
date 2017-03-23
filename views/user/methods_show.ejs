@@ -26,8 +26,8 @@
           <%= method.docs_url %>
       </p>
 
-      <%= method.id %>
-      <%= exercise.method %>
+      <%= method.id  %>
+
       <br>
 
       <!-- Buttons to edit and delete -->
@@ -37,10 +37,10 @@
       <div>
         <article>
           <ul>
-            <% exercise.forEach(function(exercise) { %>
-              <% if (exercise.method === method.id) { %>
+            <% exercises.forEach(function(exercise) { %>
+              <% if (exercises.method == method.id) { %>
               <a href="/methods/<%= method.id %>/exercises/<%= exercise.id %>" value=<%= exercise.id %> >
-              <h2>  <%= exercise.name %> </h2>
+              <h2>  <%= exercises.name %> </h2>
               </a>
             <% } else { %>
                 Show this

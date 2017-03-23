@@ -25,7 +25,7 @@ function newExercise(req, res) {
       methods: methods,
       message: req.flash(`adminMessage`)
     })
-    })
+  })
 }
 
 
