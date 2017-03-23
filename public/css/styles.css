@@ -36,16 +36,8 @@ button {
 
 .container {
   padding: 0 30px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
-
-#homepage-container {
-  position: fixed;
-  top: 10%;
-  left: 35%;
-  line-height: 300%
-}
-
 
 /* Nav Bar */
 

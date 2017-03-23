@@ -41,7 +41,7 @@ function getLogout(request, response) {
 
 // Facebook authentication
 
-function getFacebook(request, response) {
+function getFacebook(request, response, next) {
   var signupStrategy = passport.authenticate('facebook', {
     scope : 'email'
   })
