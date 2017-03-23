@@ -14,12 +14,10 @@
       <article>
         <ul>
           <% methods.forEach(function(method) { %>
-            <a href="/method/:id" value=<%= method.id %>>
-            <h3>  <%= method.name %> </h3>
+            <a href="/methods/<%= method.id %>" value=<%= method.id %> >
+            <h2>  <%= method.name %> </h2>
             </a>
           <% }) %>
-
-
       </article>
     </div>
 

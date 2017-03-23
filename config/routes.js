@@ -96,19 +96,20 @@ router.route('/admin/methods/new')
   .post(authenticateUser, authenticateAdmin,  methodsController.createMethod)
 
 router.route('/admin/methods/:id/edit')
-  .get(authenticateUser, authenticateAdmin,  methodsController.editMethod)
-  .post(authenticateUser, authenticateAdmin,  methodsController.updateMethod)
+  .get(authenticateUser,  methodsController.editMethod)
+  .post(authenticateUser,  methodsController.updateMethod)
 
 router.route('/admin/methods/:id/delete')
   .post(authenticateUser, authenticateAdmin,  methodsController.destroyMethod)
 
-router.route('/admin/methods/:id')
+router.route('/methods/:id')
   .get(authenticateUser, methodsController.show)
 
 // Exercises routes
 
 router.route('/admin/exercises')
 	.get(authenticateUser, exercisesController.index)
+
 
 router.route('/admin/exercises/new')
   .get(authenticateUser, exercisesController.newExercise)

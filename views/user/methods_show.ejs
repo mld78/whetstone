@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(`../partials/head`) %>
+    <%- include(`../partials/scripts`) %>
+  </head>
+  <body>
+    <%- include(`../partials/header`) %>
+
+  <div class="profile-container">
+      <h1> Here is the information and the exercises for <%= methods.name %> </h1>
+
+      <p>Language:
+          <%= methods.language %>
+      </p>
+
+      <p>Version:
+          <%= methods.version_added %>
+      </p>
+
+      <p>Description:
+          <%= methods.description %>
+      </p>
+
+      <p>More Documentation:
+          <%= methods.docs_url %>
+      </p>
+
+      <%= methods.id %>
+      <%= exercises.method %>
+      <br>
+
+      <!-- Buttons to edit and delete -->
+
+      <a href="/profile/edit" class="btn btn-default">Edit</a>
+
+      <div>
+        <article>
+          <ul>
+            <% exercises.forEach(function(exercise) { %>
+              <% if (exercise.method === methods.id) { %>
+              <a href="/methods/<%= method.id %>/exercises/<%= exercise.id %>" value=<%= exercises.id %> >
+              <h2>  <%= exercise.name %> </h2>
+              </a>
+            <% } else { %>
+                Show this
+              <% } %>
+          <% }) %>
+          </ul>
+        </article>
+      </div>
+
+
+      </div>
+  </body>
+</html>
