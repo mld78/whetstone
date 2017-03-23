@@ -15,7 +15,7 @@
 <div id="profile-container">
 
     <!-- User data pulled in -->
-    <h2>Chef: <%= user.facebook.name || user.local.name %></h2>
+    <h2><%= user.facebook.name || user.local.name %></h2>
 
     <p>Title:
         <%= user.local.title %>
@@ -31,7 +31,7 @@
     <br>
 
     <!-- Buttons to edit and delete -->
-    <a href="/profile/edit" class="btn btn-default">Edit</a>
+    <a class="button" href="/profile/edit" class="btn btn-default">Edit</a>
 
 
   </div>

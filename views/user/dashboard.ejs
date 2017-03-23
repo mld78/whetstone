@@ -8,7 +8,7 @@
     <%- include(`../partials/header`) %>
     <div id="dashboard-container">
         <!-- <h1>Dashboard</h1> -->
-        <h1>Chef: <%= user.facebook.name || user.local.name %></h1>
+        <h1><%= user.facebook.name || user.local.name %></h1>
 
         <% var completeCount = user.completed_exercises.length %>
         <% var today = new Date() %>
@@ -36,8 +36,8 @@
     </div>
 
 <% if (user.local && user.local.isAdmin) { %>
-  <a href="/methods/new" class="btn btn-default">New Method</a>
-  <a href="/exercises/new" class="btn btn-default">New Exercise</a>
+  <a class="button" href="/methods/new" class="btn btn-default">New Method</a>
+  <a class="button" href="/exercises/new" class="btn btn-default">New Exercise</a>
 <% } %>
 
 
