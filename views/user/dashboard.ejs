@@ -19,6 +19,8 @@
 	        <a href="/exercises"><h2>Do today's exercises</h2></a>
         <% } %>
 
+          <a href="/methods"><h2>Want more practice?</h2></a>
+
         <h2>Completed Exercises</h2>
         <ul>
         <% if (completeCount) {%>
@@ -32,5 +34,12 @@
         <% } %>
         </ul>
     </div>
+
+<% if (user.local && user.local.isAdmin) { %>
+  <a href="/methods/new" class="btn btn-default">New Method</a>
+  <a href="/exercises/new" class="btn btn-default">New Exercise</a>
+<% } %>
+
+
   </body>
 </html>

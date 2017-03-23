@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(`../partials/head`) %>
+    <%- include(`../partials/scripts`) %>
+  </head>
+  <body>
+    <%- include(`../partials/header`) %>
+
+  <div class="profile-container">
+      <h1> Here is the information and the exercises for <%= method.name %> </h1>
+
+      <p>Language:
+          <%= method.language %>
+      </p>
+
+      <p>Version:
+          <%= method.version_added %>
+      </p>
+
+      <p>Description:
+          <%= method.description %>
+      </p>
+
+      <p>More Documentation:
+          <%= method.docs_url %>
+      </p>
+
+      <br>
+
+      <!-- Buttons to edit and delete -->
+        <% if (user.local && user.local.isAdmin) { %>
+      <a href="/methods/<%= method.id %>/edit" class="btn btn-default">Edit Method</a>
+        <% } %>
+
+
+      <div>
+        <article>
+          <ul>
+            <% exercises.forEach(function(exercise) { %>
+                <% if (exercise.method == method.id) { %>
+              <a href="/methods/<%= method.id %>/exercises/<%= exercise.id %>" value=<%= exercise.id %>>
+              <h2>  <%= exercise.name %> </h2>
+              </a>
+              <% } else { %>
+                <% } %>
+            <% }) %>
+          </ul>
+        </article>
+      </div>
+
+
+      </div>
+  </body>
+</html>

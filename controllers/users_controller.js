@@ -2,7 +2,8 @@ var passport = require("passport"),
     User = require("../models/user"),
     CompletedExercise = require("../models/completed_exercise"),
     Exercise = require("../models/exercise"),
-    hackerEarth = require('hackerearth-node')
+    hackerEarth = require('hackerearth-node'),
+    Method = require('../models/method')
 
 // Authentication: sign up and log in
 
