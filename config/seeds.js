@@ -80,6 +80,30 @@ var exercises = [
 			expectation: 'Hello, fasdfa124isbi45.'
 		},
 	]
+},
+{	name: 'reverseString',
+	// enter the method name, the seeds file will take care of finding the id
+	method: fixedMethod.id,
+	difficulty: 1,
+	prompt: 'Complete the solution so that it reverses the string value passed into it.',
+	tests: [
+		{
+			explanation: 'Test with short word',
+			invocation: "reverseString('bat')",
+			expectation: 'tab'
+		},
+		{
+			explanation: 'Test with medium word.',
+			invocation: "reverseString('Crazy')",
+			expectation: 'yzarC'
+		},
+		{
+			explanation: 'Test with longer word.',
+			invocation: "reverseString('Hippopotamus')",
+			expectation: 'sumatopoppiH'
+		}
+
+	]
 }
 ]
 

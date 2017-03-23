@@ -1,4 +1,5 @@
 var Method = require('../models/method')
+var Exercise = require('../models/exercise')
 
 ////////// INTERFACE ACTIONS //////////
 
@@ -131,9 +132,9 @@ module.exports = {
   updateMethod: updateMethod,
   destroyMethod: destroyMethod,
 
-  // indexJSON: indexJSON,  
-  // showJSON: showJSON,  
-  // createJSON: createJSON,  
-  // updateJSON: updateJSON,  
+  // indexJSON: indexJSON,
+  // showJSON: showJSON,
+  // createJSON: createJSON,
+  // updateJSON: updateJSON,
   // destroyJSON: destroyJSON
 }
