@@ -33,10 +33,10 @@
         </ul>
     </div>
 
-
+<% if (user.local && user.local.isAdmin) { %>
   <a href="/methods/new" class="btn btn-default">New Method</a>
   <a href="/exercises/new" class="btn btn-default">New Exercise</a>
-
+<% } %>
 
 
   </body>
