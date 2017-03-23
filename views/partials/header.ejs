@@ -1,4 +1,6 @@
 <div class="links">
+
+		<img src="favicon.ico" alt="logo" />
 	<div class="left">
 		<a href="/">home</a>
 		<a href="/about">about</a>
@@ -6,6 +8,9 @@
 
 	<div class="right">
 <% if (user) { %>
+	<% if(user.local && user.local.isAdmin) { %>
+	<a href="#">admin status</a>
+	<% }%>
 	<a href="/dashboard" data="<%= user.id %>"" id="dashboard-link" >dashboard</a>
 	<a href="/profile">profile</a>
 	<a href="/logout">log out</a>
@@ -13,6 +18,10 @@
 	<a href="/signup">sign up</a>
 	<a href="/login">log in</a>
 <% } %>
+
+
+<img src="favicon.ico" alt="logo" />
+
 	</div>
 
 </div>
