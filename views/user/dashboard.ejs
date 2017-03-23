@@ -25,7 +25,7 @@
         <ul>
         <% if (completeCount) {%>
             <% for (var i = 0; i < completeCount; i++){ %>
-            	<li><strong> <%= completed_exercises[i].exercise.name %></strong> - 
+            	<li><strong> <%= completed_exercises[i].exercise.name %></strong> -
                 <%= (user.completed_exercises[i].time_completed.getTime() - user.completed_exercises[i].time_started.getTime()) * 0.001 %> seconds
                 </li>
             <% } %>
@@ -35,9 +35,9 @@
         </ul>
     </div>
 
+    <a href="/methods/new" class="btn btn-default">New Method</a>
+    <a href="/exercises/new" class="btn btn-default">New Exercise</a>
 <% if (user.local && user.local.isAdmin) { %>
-  <a href="/methods/new" class="btn btn-default">New Method</a>
-  <a href="/exercises/new" class="btn btn-default">New Exercise</a>
 <% } %>
 
 
