@@ -28,7 +28,7 @@ function createExercise(req, res) {
   var newExercise = new Exercise(req.body)
   newExercise.save(function(err, savedExercise) {
     if (err) throw err
-    res.json(savedExercise)
+    res.render()
   })
 }
 
