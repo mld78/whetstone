@@ -16,7 +16,7 @@
         <% if (completeCount && user.completed_exercises[completeCount-1].time_completed.toDateString() === today.toDateString()) { %>
 	        <p>Done for the day!</p>
         <% } else { %>
-	        <a href="/exercises"><h2>Do today's exercises</h2></a>
+	        <a href="/exercises"><h2>Do today's exercise.</h2></a>
         <% } %>
 
           <a href="/methods"><h2>Want more practice?</h2></a>
@@ -25,7 +25,7 @@
         <ul id="completed-exercises">
         <% if (completeCount) {%>
             <% for (var i = 0; i < completeCount; i++){ %>
-            	<li><strong> <%= completed_exercises[i].exercise.name %></strong> - 
+            	<li><strong> <%= completed_exercises[i].exercise.name %></strong> -
                 <%= (user.completed_exercises[i].time_completed.getTime() - user.completed_exercises[i].time_started.getTime()) * 0.001 %> seconds
                 </li>
             <% } %>

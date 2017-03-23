@@ -41,20 +41,20 @@ function getLogout(request, response) {
 
 // Facebook authentication
 
-function getFacebook(request, response) {
+function getFacebook(request, response, next) {
   var signupStrategy = passport.authenticate('facebook', {
     scope : 'email'
   })
 
-  return signupStrategy(request, response)
+  return signupStrategy(request, response, next)
 }
 
-function getFacebookCallback(request, response) {
+function getFacebookCallback(request, response, next) {
   var loginProperty = passport.authenticate('facebook', {
     successRedirect : '/',
     failureRedirect : './static_pages/login'
   })
-  return loginProperty(request, response)
+  return loginProperty(request, response, next)
 }
 
 // Profile
