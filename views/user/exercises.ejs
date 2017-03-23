@@ -15,25 +15,29 @@
   
 }</textarea>
         <div id="output"><p></p></div>
-        <br>
-        <button id="run">run</button>
-        <button disabled="true" id="submit">submit</button>
+        <button class="exercise-btn" id="run">run</button>
+        <button class="exercise-btn" id="run-tests">run tests</button>
+        <button disabled="true" id="submit" class="exercise-btn" data="<%= exercise.id %>">
+        submit
+        </button>
 
-        <table>
+        <table id="tests" class="">
           <tr>
-            <th></th>
+            <th>Invoke</th>
+            <th>Expect</th>
+            <th>Result</th>
           </tr>
-          <tr>
-            <td></td>
-          </tr>
-        </table>
         <% exercise.tests.forEach(function(test){ %>
-        <ul>
-          <li><%= test.explanation %></li>
+          <tr class="test">
+            <td class="invocation"><%= test.invocation %></td>
+            <td class="expectation"><%= test.expectation %></td>
+            <td class="result">...</td>
+          </tr>
         <% }) %>
-        </ul>
+        </table>
 
     </div>
     <%- include(`../partials/scripts`) %>
+    <script src="/js/exercises.js"></script>
   </body>
 </html>

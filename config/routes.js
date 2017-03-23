@@ -13,7 +13,8 @@ var express = require('express'),
 var usersController = require('../controllers/users_controller'),
     methodsController = require('../controllers/methods_controller'),
     exercisesController = require('../controllers/exercises_controller'),
-    staticPagesController = require('../controllers/static_pages_controller')
+    staticPagesController = require('../controllers/static_pages_controller'),
+    completedExercisesController = require('../controllers/completed_exercises_controller')
 
 // Routes helpers
 
@@ -23,6 +24,13 @@ function authenticateUser(request, response, next) {
   // Otherwise the request is always redirected to the login page
   response.redirect('/login')
 }
+
+function authenticateAdmin(request, response, next) {
+  // Set admin context and others things like admin templates
+  if (request.user.local.isAdmin) return next();
+
+  response.redirect('/dashboard')
+};
 
 ///// ROUTES /////
 
@@ -65,28 +73,40 @@ router.route('/dashboard')
 
 router.route('/exercises')
 	// .get(authenticateUser, usersController.exercises)
-	.get(usersController.exercises)
+	.get(authenticateUser, usersController.exercises)
 	.post(usersController.runCode)
+
+router.route('/completed-exercises')
+  .post(completedExercisesController.create)
+
+
 
 router.route('/profile')
   .get(authenticateUser, usersController.showProfile)
 
+router.route('/profile/edit')
+  .get(authenticateUser, usersController.editProfile)
+  .post(authenticateUser, usersController.updateProfile)
+
+router.route('/profile/delete')
+  .post(authenticateUser, usersController.destroyUser)
+
 // Method Routes
-router.route('/admin/methods')
+router.route('/methods')
   .get(authenticateUser, methodsController.index)
 
-router.route('/admin/methods/new')
-  .get(authenticateUser, methodsController.newMethod)
-  .post(authenticateUser, methodsController.createMethod)
+router.route('/methods/new')
+  .get(authenticateUser,  methodsController.newMethod)
+  .post(authenticateUser,  methodsController.createMethod)
 
-router.route('/admin/methods/:id/edit')
-  .get(authenticateUser, methodsController.editMethod)
-  .post(authenticateUser, methodsController.updateMethod)
+router.route('/methods/:id/edit')
+  .get(authenticateUser,  methodsController.editMethod)
+  .post(authenticateUser,  methodsController.updateMethod)
 
 router.route('/admin/methods/:id/delete')
-  .post(authenticateUser, methodsController.destroyMethod)
+  .post(authenticateUser, authenticateAdmin,  methodsController.destroyMethod)
 
-router.route('/admin/methods/:id')
+router.route('/methods/:id')
   .get(authenticateUser, methodsController.show)
 
 // Exercises routes
@@ -94,15 +114,16 @@ router.route('/admin/methods/:id')
 router.route('/admin/exercises')
 	.get(authenticateUser, exercisesController.index)
 
-router.route('/admin/exercises/new')
+
+router.route('/exercises/new')
   .get(authenticateUser, exercisesController.newExercise)
   .post(authenticateUser, exercisesController.createExercise)
 
-router.route('/admin/exercises/:id/edit')
+router.route('/exercises/:id/edit')
   .get(authenticateUser, exercisesController.editExercise)
   .post(authenticateUser, exercisesController.updateExercise)
 
-router.route('/admin/exercises/:id/delete')
+router.route('/exercises/:id/delete')
   .post(authenticateUser, exercisesController.destroyExercise)
 
 router.route('/admin/exercises/:id')

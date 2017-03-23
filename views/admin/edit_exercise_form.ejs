@@ -7,7 +7,7 @@
   <body>
     <%- include(`../partials/header`, {page: `edit exercise`}) %>
 
-    <form method="post" action="/admin/exercises/<%= exercise.id %>/edit">
+    <form method="post" action="/exercises/<%= exercise.id %>/edit">
 
       <div class="form-group">
         <label for="name">Exercise Name</label>
@@ -42,7 +42,7 @@
 
       <input class="btn" type="submit">
     </form>
-    <form method="POST" action="/admin/exercises/<%= exercise.id %>/delete">
+    <form method="POST" action="/exercises/<%= exercise.id %>/delete">
       <button class="btn btn-danger"  type="submit" name="destroyExercise">
         Delete
       </button>

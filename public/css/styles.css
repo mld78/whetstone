@@ -138,6 +138,29 @@ button {
   cursor: default;
 }
 
+.exercise-btn {
+	margin: 10px 5px;
+	background-color: #34373d;
+	border:2px solid #fff;
+	color:#fff;
+}
+
+.exercise-btn:hover {
+	background-color:#fff;
+	border:2px solid #fff;
+	color: #34373d;
+}
+
+.exercise-btn:disabled {
+	background-color:#34373d;
+	border:2px solid #9aa1ac;
+	color: #9aa1ac;
+}
+
+.exercise-btn:disabled:hover {
+	cursor: default;
+}
+
 #input {
   outline: none;
   resize: none;
@@ -167,6 +190,33 @@ button {
   text-align: left;
   padding: 0;
   margin: 0;
+}
+
+
+#tests {
+	box-sizing: border-box;
+	width: 420px;
+	padding: 10px;
+	margin: 0 auto;
+
+	border:3px solid #9aa1ac;
+
+	font-family: monospace;
+	font-size: 16px;
+	text-align: left;
+}
+
+#tests th {
+	text-transform: uppercase;
+	color: #9aa1ac;
+}
+
+#tests tr.passing {
+	color: #fff;
+}
+
+#tests.passing {
+	border:3px solid #fff;
 }
 
 a {

@@ -5,11 +5,12 @@ var mongoose = require('mongoose'),
 // it's possible the name "method" isn't the best, we could
 // consider changing it to function or something.
 var userSchema = new mongoose.Schema({
-	local : {
-    title: String,
-    name: String,
+	local: {
+    	title: String,
+    	name: String,
 		email: String,
-		password: String
+		password: String,
+		isAdmin: { type: Boolean, default: false }
 	},
 	facebook: {
 		id: String,

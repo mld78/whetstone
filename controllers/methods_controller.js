@@ -1,4 +1,5 @@
 var Method = require('../models/method')
+var Exercise = require('../models/exercise')
 
 // Interface paths
 
@@ -9,7 +10,9 @@ var Method = require('../models/method')
 function index(req, res) {
   Method.find({}, function(err, methods) {
     if (err) throw err
-    res.json(methods)
+    res.render('./user/methods_index.ejs', {
+      methods: methods
+    })
   })
 }
 
@@ -36,11 +39,17 @@ function createMethod(req, res) {
 // SHOW
 function show(req, res) {
   var id = req.params.id
-
-  Method.findById(id, function(err, methods) {
+  Exercise.find({}, function(err, exercises){
     if (err) throw err
-    res.json(methods)
+
+  Method.findById(id, function(err, method) {
+    if (err) throw err
+    res.render('./user/methods_show.ejs', {
+      exercises: exercises,
+      method: method
+    })
   })
+ })
 }
 
 
@@ -72,9 +81,9 @@ function updateMethod(req, res) {
     if (req.body.version_added) updatedMethod.version_added = req.body.version_added
     if (req.body.docs_url) updatedMethod.docs_url = req.body.docs_url
 
-    updatedMethod.save(function(err, savedMethod) {
+    updatedMethod.save(function(err, method) {
       if (err) throw err
-      res.json(savedMethod)
+      res.redirect('/methods/'+ method.id)
     })
   })
 }
@@ -96,6 +105,8 @@ function destroyMethod(req, res) {
 }
 
 
+
+
 // EXPORTS
 module.exports = {
 	index: index,
@@ -104,5 +115,6 @@ module.exports = {
   createMethod: createMethod,
   editMethod: editMethod,
   updateMethod: updateMethod,
-  destroyMethod: destroyMethod
+  destroyMethod: destroyMethod,
+
 }

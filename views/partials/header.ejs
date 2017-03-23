@@ -11,7 +11,7 @@
 	<% if(user.local && user.local.isAdmin) { %>
 	<a href="#">admin status</a>
 	<% }%>
-	<a href="/dashboard">dashboard</a>
+	<a href="/dashboard" data="<%= user.id %>"" id="dashboard-link" >dashboard</a>
 	<a href="/profile">profile</a>
 	<a href="/logout">log out</a>
 <% } else { %>
