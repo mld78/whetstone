@@ -26,7 +26,11 @@ Whetstone includes a large and growing library of methods and exercises. We have
 `GET /api/methods/` to see an index of all the methods in our database.
 `GET /api/methods/:id` to see the method with the matching ID.
 
-`POST /api/methods/` to see the method with the matching ID.
+`POST /api/methods/` create a new method, format post data like this:
+
+```js
+
+```
 
 **Exercises**
 

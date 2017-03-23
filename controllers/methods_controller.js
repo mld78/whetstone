@@ -101,25 +101,25 @@ function destroyMethod(req, res) {
 
 ////////// API ACTIONS //////////
 
-function indexJSON (req, res){
+// function indexJSON (req, res){
 
-}
+// }
 
-function showJSON (req, res){
+// function showJSON (req, res){
 
-}
+// }
 
-function createJSON (req, res){
+// function createJSON (req, res){
 
-}
+// }
 
-function updateJSON (req, res){
+// function updateJSON (req, res){
 
-}
+// }
 
-function destroyJSON (req, res){
+// function destroyJSON (req, res){
 
-}
+// }
 
 // EXPORTS
 module.exports = {
@@ -131,9 +131,9 @@ module.exports = {
   updateMethod: updateMethod,
   destroyMethod: destroyMethod,
 
-  indexJSON: indexJSON,  
-  showJSON: showJSON,  
-  createJSON: createJSON,  
-  updateJSON: updateJSON,  
-  destroyJSON: destroyJSON
+  // indexJSON: indexJSON,  
+  // showJSON: showJSON,  
+  // createJSON: createJSON,  
+  // updateJSON: updateJSON,  
+  // destroyJSON: destroyJSON
 }
