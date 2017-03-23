@@ -46,7 +46,7 @@ function getFacebook(request, response, next) {
     scope : 'email'
   })
 
-  return signupStrategy(request, response)
+  return signupStrategy(request, response, next)
 }
 
 function getFacebookCallback(request, response) {
