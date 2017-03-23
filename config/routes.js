@@ -22,7 +22,7 @@ function authenticateUser(request, response, next) {
   // If the user is authenticated, then we continue to the next function
   if (request.isAuthenticated()) return next()
   // If not, redirect them to the login page
-  response.redirect('/login', { message: request.flash('Please log in first.') })
+  response.redirect({ message: request.flash('Please log in first.') }, '/')
 }
 
 function authenticateAdmin(request, response, next) {
