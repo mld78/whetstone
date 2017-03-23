@@ -26,6 +26,7 @@ function newExercise(req, res) {
 // CREATE
 function createExercise(req, res) {
   var newExercise = new Exercise(req.body)
+  console.log(req.body)
   newExercise.save(function(err, exercise) {
     if (err) throw err
     res.redirect('/dashboard')
