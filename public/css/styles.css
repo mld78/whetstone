@@ -30,8 +30,8 @@ button {
 
 .container {
 	padding: 0 30px;
-	min-width: 500px;
 	margin: 0 auto;
+
 }
 
 #homepage-container {
@@ -45,6 +45,10 @@ button {
 
 #title-container img {
 	width: 350px;
+}
+
+#title-container {
+	font-size: 125%;
 }
 
 .links img {
