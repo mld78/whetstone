@@ -1,7 +1,9 @@
 <style type="text/css">
-    img {
+    .wireframe {
         display: block;
         float: left;
+        margin-left: 10px;
+        margin-top: 10px;
     }
 </style>
 
@@ -50,12 +52,12 @@ At the end of our initial sprint, we had achieved a **minimum viable product** w
 
 **Wireframes**
 
-<img src="readme_assets/home.JPG" width="300px" align="right">
-<img src="readme_assets/signup.JPG" width="300px" align="right">
-<img src="readme_assets/pick-lang.JPG" width="300px" align="right">
-<img src="readme_assets/pick-exercises.JPG" width="300px" align="right">
-<img src="readme_assets/exercise.JPG" width="300px" align="right">
-<img src="readme_assets/login.JPG" width="300px" align="right">
+<img src="readme_assets/home.JPG" width="300px" class="wireframe">
+<img src="readme_assets/signup.JPG" width="300px" class="wireframe">
+<img src="readme_assets/pick-lang.JPG" width="300px" class="wireframe">
+<img src="readme_assets/pick-exercises.JPG" width="300px" class="wireframe">
+<img src="readme_assets/exercise.JPG" width="300px" class="wireframe">
+<img src="readme_assets/login.JPG" width="300px" class="wireframe">
 <br>
 
 **Initial ERD**
