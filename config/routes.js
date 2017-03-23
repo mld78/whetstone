@@ -27,7 +27,7 @@ function authenticateUser(request, response, next) {
 
 function authenticateAdmin(request, response, next) {
   // Set admin context and others things like admin templates
-  if (request.user.local.isAdmin) return next();
+  if (request.user.local && request.user.local.isAdmin) return next()
 
   response.redirect('/dashboard')
 };
