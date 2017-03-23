@@ -16,6 +16,9 @@ require('dotenv').config()
 
 // create express app
 var app = express()
+// set up public directory path and favicon
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(express.static(__dirname + '/public'))
 
 // connect to database
 var mongoose = require('./config/database')
@@ -30,8 +33,6 @@ app.set('view engine', 'ejs')
 // app.use(ejsLayouts)
 app.set("views","./views")
 
-// set up public directory path
-app.use(express.static(__dirname + '/public'))
 
 // configure passport
 app.use(session({ secret: 'WHETSTONE-CODE-SHARPENING' }))
