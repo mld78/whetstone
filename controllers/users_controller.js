@@ -1,5 +1,6 @@
 var passport = require("passport"),
     User = require("../models/user"),
+    CompletedExercise = require("../models/completed_exercise"),
     Exercise = require("../models/exercise"),
     hackerEarth = require('hackerearth-node')
 
@@ -124,7 +125,12 @@ function destroyUser(request, response) {
 // Dashboard
 
 function dashboard(request, response){
-  response.render('./user/dashboard')
+  User.findById(user.id)
+      .populate('completed_exercises.exercise')
+      .exec(function(err, user){
+        if (err) throw err
+        response.render('./user/dashboard', {completed_exercises: user.completed_exercises})
+      })
 }
 
 // Exercises

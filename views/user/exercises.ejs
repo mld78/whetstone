@@ -17,7 +17,9 @@
         <div id="output"><p></p></div>
         <button class="exercise-btn" id="run">run</button>
         <button class="exercise-btn" id="run-tests">run tests</button>
-        <button disabled="true" id="submit" class="exercise-btn">submit</button>
+        <button disabled="true" id="submit" class="exercise-btn" data="<%= exercise.id %>">
+        submit
+        </button>
 
         <table id="tests" class="">
           <tr>
@@ -36,5 +38,6 @@
 
     </div>
     <%- include(`../partials/scripts`) %>
+    <script src="/js/exercises.js"></script>
   </body>
 </html>

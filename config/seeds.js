@@ -47,12 +47,7 @@ var exercises = [
 			explanation: 'Testing the three basic types, should return en.',
 			invocation: "dashType('-')",
 			expectation: 'en'
-		},
-		{
-			explanation: 'Testing the three basic types, should return hyphen.',
-			invocation: "dashType('–')",
-			expectation: 'hyphen'
-		},
+		}
 	]
 },
 {	name: 'hello',

@@ -11,6 +11,6 @@ var exerciseSchema = new mongoose.Schema({
 	tests: [Test.schema]
 })
 
-var Exercise = mongoose.model('Exercises', exerciseSchema)
+var Exercise = mongoose.model('Exercise', exerciseSchema)
 
 module.exports = Exercise
