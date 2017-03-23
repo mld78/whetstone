@@ -23,7 +23,7 @@ var methods = [{
 }
 ]
 
-var fixedMethod = new Method({	
+var fixedMethod = new Method({
 	name: 'charCodeAt',
 	language: 'JavaScript',
 	version_added: 'JavaScript 1.2',
@@ -36,7 +36,7 @@ var exercises = [
 	// enter the method name, the seeds file will take care of finding the id
 	method: fixedMethod.id,
 	difficulty: 4,
-	prompt: 'Given a single dash as a string, return its type as a string - "em", "en", or "hyphen".',		
+	prompt: 'Given a single dash as a string, return its type as a string - "em", "en", or "hyphen".',
 	tests: [
 		{
 			explanation: 'Testing the three basic types, should return em.',
@@ -54,7 +54,7 @@ var exercises = [
 	// enter the method name, the seeds file will take care of finding the id
 	method: fixedMethod.id,
 	difficulty: 1,
-	prompt: 'Write a function which takes a name as an argument, and returns "Hello, <name>." - or just "Hello." if no name is given.',		
+	prompt: 'Write a function which takes a name as an argument, and returns "Hello, <name>." - or just "Hello." if no name is given.',
 	tests: [
 		{
 			explanation: 'Test without name.',
@@ -81,19 +81,19 @@ var exercises = [
 ]
 
 Exercise.remove({}, function(err) {
-	if (err) throw err
-	console.log('Cleared exercises.')
-	Method.remove({}, function(err) {
-		if (err) throw err
-		console.log('Cleared methods.')
-		Method.create(methods, function(err, methods) {
-			if (err) throw err
-			console.log(`Seeded ${methods.length} methods.`)
-			Exercise.create(exercises, function(err, exercises) {
-				if (err) throw err
-				console.log(`Seeded ${exercises.length} exercises.`)
-		// Close connection and exit 
-				mongoose.connection.close()
-				process.exit()
+    if (err) throw err
+    console.log('Cleared exercises.')
+    Method.remove({}, function(err) {
+        if (err) throw err
+        console.log('Cleared methods.')
+        Method.create(methods, function(err, methods) {
+            if (err) throw err
+            fixedMethod.save()
+            console.log(`Seeded ${methods.length + 1} methods.`)
+            Exercise.create(exercises, function(err, exercises) {
+                if (err) throw err
+                console.log(`Seeded ${exercises.length} exercises.`)
+        // Close connection and exit
+                mongoose.connection.close()
+                process.exit()
 })})})})
-

@@ -1,3 +1,11 @@
+require('dotenv').config()
+
+var mongoose = require('./database'),
+	Test = require('../models/test'),
+	Exercise = require('../models/exercise'),
+	Method = require('../models/method')
+
+var methods = [
 {
 	name: `Array.from()`,
 	language: `JavaScript`,
@@ -214,4 +222,18 @@
 	description: `The values() method returns a new Array Iterator object that contains the values for each index in the array.`,
 	version_added: `ECMAScript 2015 (6th Edition, ECMA-262)`,
 	docs_url: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values`
-}
+}]
+
+
+
+	Method.remove({}, function(err) {
+		if (err) throw err
+		console.log('Cleared methods.')
+		Method.create(methods, function(err, methods) {
+			if (err) throw err
+			console.log(`Seeded ${methods.length} methods.`)
+
+		// Close connection and exit
+				mongoose.connection.close()
+				process.exit()
+})})
