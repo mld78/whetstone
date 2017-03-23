@@ -18,9 +18,9 @@ lighter blue: #9aa1ac
 /* General Styles */
 
 
-/*body {
+body {
 	min-width: 500px;
-}*/
+}
 
 ul {
   list-style-type: none;
@@ -93,6 +93,10 @@ button {
   color: #fff
 }
 
+/* Dashboard Styles */
+#completed-exercises{
+  margin-left: -35px;
+}
 
 /* Exercises Styles */
 
@@ -100,42 +104,6 @@ button {
   margin-top: 50px;
   font-size: 20px;
   color: #34373d;
-}
-
-#run {
-  margin: 10px 5px;
-  background-color: #34373d;
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-#run:hover {
-  background-color: #fff;
-  border: 2px solid #fff;
-  color: #34373d;
-}
-
-#submit {
-  margin: 10px 5px;
-  background-color: #9aa1ac;
-  border: 2px solid #34373d;
-  color: #34373d;
-}
-
-#submit:hover {
-  background-color: #34373d;
-  border: 2px solid #34373d;
-  color: #9aa1ac;
-}
-
-#submit:disabled {
-  background-color: #34373d;
-  border: 2px solid #9aa1ac;
-  color: #9aa1ac;
-}
-
-#submit:disabled:hover {
-  cursor: default;
 }
 
 .exercise-btn {
