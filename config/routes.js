@@ -103,7 +103,7 @@ router.route('/methods/:slug_url/edit')
   .get(authenticateUser,  methodsController.editMethod)
   .post(authenticateUser,  methodsController.updateMethod)
 
-router.route('/admin/methods/:id/delete')
+router.route('/methods/:slug_url/delete')
   .post(authenticateAdmin,  methodsController.destroyMethod)
 
 
@@ -112,7 +112,7 @@ router.route('/methods/:slug_url')
 
 // Exercises routes
 
-router.route('/admin/exercises')
+router.route('/exercises')
 	.get(authenticateUser, exercisesController.index)
 
 

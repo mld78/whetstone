@@ -27,7 +27,7 @@ function createMethod(req, res) {
   var newMethod = new Method(req.body)
   newMethod.save(function(err, method) {
     if (err) throw err
-    res.redirect('/methods/'+ method.id)
+    res.redirect('/methods/'+ method.slug_url)
   })
 }
 
@@ -87,11 +87,11 @@ function updateMethod(req, res) {
 
 // DELETE
 function destroyMethod(req, res) {
-  var id = req.params.id
+  var slug = req.params.slug_url
   // var areYouSure = prompt(`ARE YOU SURE YOU WANT TO DELETE THIS METHOD?\nType: "YES DELETE METHOD"\n\n${req.body}`)
   // if (areYouSure === "YES DELETE METHOD") {
 
-  Method.remove({_id: id}, function(err) {
+  Method.remove({slug_url: slug}, function(err) {
     if (err) res.json({message: `Could not delete Method b/c: ${err}`})
 
     res.json({message: 'Method successfully deleted.'});
