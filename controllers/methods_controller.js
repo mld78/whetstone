@@ -39,14 +39,14 @@ function createMethod(req, res) {
 // SHOW
 function show(req, res) {
   var id = req.params.id
-  Exercise.find({}, function(err, exercises){
+  Exercise.find({}, function(err, exercise){
     if (err) throw err
 
-  Method.findById(id, function(err, methods) {
+  Method.findById(id, function(err, method) {
     if (err) throw err
     res.render('./user/methods_show.ejs', {
-      methods: methods,
-      exercises: exercises
+      method: method,
+      exercise: exercise
     })
   })
  })
@@ -81,9 +81,9 @@ function updateMethod(req, res) {
     if (req.body.version_added) updatedMethod.version_added = req.body.version_added
     if (req.body.docs_url) updatedMethod.docs_url = req.body.docs_url
 
-    updatedMethod.save(function(err, savedMethod) {
+    updatedMethod.save(function(err, method) {
       if (err) throw err
-      res.json(savedMethod)
+      res.redirect('/methods/'+ method.id)
     })
   })
 }

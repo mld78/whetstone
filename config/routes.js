@@ -95,7 +95,7 @@ router.route('/admin/methods/new')
   .get(authenticateUser, authenticateAdmin,  methodsController.newMethod)
   .post(authenticateUser, authenticateAdmin,  methodsController.createMethod)
 
-router.route('/admin/methods/:id/edit')
+router.route('/methods/:id/edit')
   .get(authenticateUser,  methodsController.editMethod)
   .post(authenticateUser,  methodsController.updateMethod)
 

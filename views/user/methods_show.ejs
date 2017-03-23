@@ -8,38 +8,38 @@
     <%- include(`../partials/header`) %>
 
   <div class="profile-container">
-      <h1> Here is the information and the exercises for <%= methods.name %> </h1>
+      <h1> Here is the information and the exercises for <%= method.name %> </h1>
 
       <p>Language:
-          <%= methods.language %>
+          <%= method.language %>
       </p>
 
       <p>Version:
-          <%= methods.version_added %>
+          <%= method.version_added %>
       </p>
 
       <p>Description:
-          <%= methods.description %>
+          <%= method.description %>
       </p>
 
       <p>More Documentation:
-          <%= methods.docs_url %>
+          <%= method.docs_url %>
       </p>
 
-      <%= methods.id %>
-      <%= exercises.method %>
+      <%= method.id %>
+      <%= exercise.method %>
       <br>
 
       <!-- Buttons to edit and delete -->
 
-      <a href="/profile/edit" class="btn btn-default">Edit</a>
+      <a href="/methods/<%= method.id %>/edit" class="btn btn-default">Edit Method</a>
 
       <div>
         <article>
           <ul>
-            <% exercises.forEach(function(exercise) { %>
-              <% if (exercise.method === methods.id) { %>
-              <a href="/methods/<%= method.id %>/exercises/<%= exercise.id %>" value=<%= exercises.id %> >
+            <% exercise.forEach(function(exercise) { %>
+              <% if (exercise.method === method.id) { %>
+              <a href="/methods/<%= method.id %>/exercises/<%= exercise.id %>" value=<%= exercise.id %> >
               <h2>  <%= exercise.name %> </h2>
               </a>
             <% } else { %>
