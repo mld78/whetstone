@@ -91,9 +91,9 @@ router.route('/profile/delete')
 router.route('/methods')
   .get(authenticateUser, methodsController.index)
 
-router.route('/admin/methods/new')
-  .get(authenticateUser, authenticateAdmin,  methodsController.newMethod)
-  .post(authenticateUser, authenticateAdmin,  methodsController.createMethod)
+router.route('/methods/new')
+  .get(authenticateUser,  methodsController.newMethod)
+  .post(authenticateUser,  methodsController.createMethod)
 
 router.route('/methods/:id/edit')
   .get(authenticateUser,  methodsController.editMethod)
@@ -111,15 +111,15 @@ router.route('/admin/exercises')
 	.get(authenticateUser, exercisesController.index)
 
 
-router.route('/admin/exercises/new')
+router.route('/exercises/new')
   .get(authenticateUser, exercisesController.newExercise)
   .post(authenticateUser, exercisesController.createExercise)
 
-router.route('/admin/exercises/:id/edit')
+router.route('/exercises/:id/edit')
   .get(authenticateUser, exercisesController.editExercise)
   .post(authenticateUser, exercisesController.updateExercise)
 
-router.route('/admin/exercises/:id/delete')
+router.route('/exercises/:id/delete')
   .post(authenticateUser, exercisesController.destroyExercise)
 
 router.route('/admin/exercises/:id')

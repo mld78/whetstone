@@ -1,7 +1,8 @@
 var passport = require("passport"),
     User = require("../models/user"),
     Exercise = require("../models/exercise"),
-    hackerEarth = require('hackerearth-node')
+    hackerEarth = require('hackerearth-node'),
+    Method = require('../models/method')
 
 // Authentication: sign up and log in
 
@@ -124,7 +125,8 @@ function destroyUser(request, response) {
 // Dashboard
 
 function dashboard(request, response){
-  response.render('./user/dashboard')
+
+        response.render('./user/dashboard')
 }
 
 // Exercises
