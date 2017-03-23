@@ -8,6 +8,9 @@
 
 	<div class="right">
 <% if (user) { %>
+	<% if(user.local && user.local.isAdmin) { %>
+	<a href="#">admin status</a>
+	<% }%>
 	<a href="/dashboard">dashboard</a>
 	<a href="/profile">profile</a>
 	<a href="/logout">log out</a>
