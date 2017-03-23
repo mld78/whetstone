@@ -43,16 +43,16 @@ At the end of our initial sprint, we had achieved a **minimum viable product** w
 
 **Wireframes**
 
-<img src="readme_assets/home.JPG" width="150px">
-<img src="readme_assets/signup.JPG" width="150px">
-<img src="readme_assets/pick-lang.JPG" width="150px">
-<img src="readme_assets/pick-exercises.JPG" width="150px">
-<img src="readme_assets/exercise.JPG" width="150px">
-<img src="readme_assets/login.JPG" width="150px">
+<img src="readme_assets/home.JPG" width="180px" style="float:left;margin-right: 10px;">
+<img src="readme_assets/signup.JPG" width="180px" style="float:left;margin-right: 10px;">
+<img src="readme_assets/pick-lang.JPG" width="180px" style="float:left;margin-right: 10px;">
+<img src="readme_assets/pick-exercises.JPG" width="180px" style="float:left;margin-right: 10px;">
+<img src="readme_assets/exercise.JPG" width="180px" style="float:left;margin-right: 10px;">
+<img src="readme_assets/login.JPG" width="180px" style="float:left;margin-right: 10px;">
 
 **Initial ERD**
 
-<img src="readme_assets/erd.png" width="150px">
+<img src="readme_assets/erd.png" width="300px">
 
 ### Next Steps
 
