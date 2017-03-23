@@ -123,10 +123,12 @@ router.route('/exercises/:id/edit')
   .get(authenticateUser, exercisesController.editExercise)
   .post(authenticateUser, exercisesController.updateExercise)
 
+router.route('/exercises/:id')
+  .get(authenticateUser, exercisesController.show)
+
 router.route('/exercises/:id/delete')
   .post(authenticateUser, exercisesController.destroyExercise)
 
-router.route('/admin/exercises/:id')
-	.get(authenticateUser, exercisesController.show)
+
 
 module.exports = router

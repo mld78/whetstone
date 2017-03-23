@@ -29,9 +29,9 @@ function newMethod(req, res) {
 // CREATE
 function createMethod(req, res) {
   var newMethod = new Method(req.body)
-  newMethod.save(function(err, savedMethod) {
+  newMethod.save(function(err, method) {
     if (err) throw err
-    res.json(savedMethod)
+    res.redirect('/methods/'+ method.id)
   })
 }
 
