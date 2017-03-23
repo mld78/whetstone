@@ -79,9 +79,9 @@ function updateExercise(req, res) {
     if (req.body.prompt) updatedExercise.prompt = req.body.prompt
     if (req.body.tests) updatedExercise.tests = req.body.tests
 
-    updatedExercise.save(function(err, savedExercise) {
+    updatedExercise.save(function(err, exercise) {
       if (err) throw err
-      res.json(savedExercise)
+      res.redirect('/exercises/'+ exercise.id)
     })
   })
 }
