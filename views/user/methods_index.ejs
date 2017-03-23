@@ -14,7 +14,7 @@
       <article>
         <ul>
           <% methods.forEach(function(method) { %>
-            <a href="/methods/<%= method.id %>" value=<%= method.id %> >
+            <a href="/methods/<%= method.slug_url %>" value="<%= method.slug_url %>" >
             <h2>  <%= method.name %> </h2>
             </a>
           <% }) %>
