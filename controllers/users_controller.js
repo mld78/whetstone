@@ -46,10 +46,10 @@ function getFacebook(request, response, next) {
     scope : 'email'
   })
 
-  return signupStrategy(request, response, next)
+  return signupStrategy(request, response)
 }
 
-function getFacebookCallback(request, response) {
+function getFacebookCallback(request, response, next) {
   var loginProperty = passport.authenticate('facebook', {
     successRedirect : '/',
     failureRedirect : './static_pages/login'
