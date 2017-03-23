@@ -1,12 +1,3 @@
-<style type="text/css">
-    .wireframe {
-        display: block;
-        float: left;
-        margin-left: 10px;
-        margin-top: 10px;
-    }
-</style>
-
 # Whetstone
 
 > Whetstone is a web application that new and experienced developers can use to expand their programming vocabulary.
@@ -52,17 +43,14 @@ At the end of our initial sprint, we had achieved a **minimum viable product** w
 
 **Wireframes**
 
-<img src="readme_assets/home.JPG" width="300px" class="wireframe">
-<img src="readme_assets/signup.JPG" width="300px" class="wireframe">
-<img src="readme_assets/pick-lang.JPG" width="300px" class="wireframe">
-<img src="readme_assets/pick-exercises.JPG" width="300px" class="wireframe">
-<img src="readme_assets/exercise.JPG" width="300px" class="wireframe">
-<img src="readme_assets/login.JPG" width="300px" class="wireframe">
+|-----|------|-----|
+|<img src="readme_assets/home.JPG" width="300px">|<img src="readme_assets/signup.JPG" width="300px">|<img src="readme_assets/pick-lang.JPG" width="300px">|
+|<img src="readme_assets/pick-exercises.JPG" width="300px">|<img src="readme_assets/exercise.JPG" width="300px">|<img src="readme_assets/login.JPG" width="300px">|
 <br>
 
 **Initial ERD**
 
-<img src="readme_assets/erd.png" width="450px">
+<img src="readme_assets/erd.png" width="550px">
 <br>
 
 ### Next Steps
