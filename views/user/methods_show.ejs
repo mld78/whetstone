@@ -26,8 +26,6 @@
           <%= method.docs_url %>
       </p>
 
-      <%= method.id  %>
-
       <br>
 
       <!-- Buttons to edit and delete -->
@@ -38,14 +36,13 @@
         <article>
           <ul>
             <% exercises.forEach(function(exercise) { %>
-              <% if (exercises.method == method.id) { %>
-              <a href="/methods/<%= method.id %>/exercises/<%= exercise.id %>" value=<%= exercise.id %> >
-              <h2>  <%= exercises.name %> </h2>
+                <% if (exercise.method == method.id) { %>
+              <a href="/methods/<%= method.id %>/exercises/<%= exercise.id %>" value=<%= exercise.id %>>
+              <h2>  <%= exercise.name %> </h2>
               </a>
-            <% } else { %>
-                Show this
-              <% } %>
-          <% }) %>
+              <% } else { %>
+                <% } %>
+            <% }) %>
           </ul>
         </article>
       </div>
