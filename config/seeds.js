@@ -88,7 +88,8 @@ Exercise.remove({}, function(err) {
 		console.log('Cleared methods.')
 		Method.create(methods, function(err, methods) {
 			if (err) throw err
-			console.log(`Seeded ${methods.length} methods.`)
+			fixedMethod.save()
+			console.log(`Seeded ${methods.length + 1} methods.`)
 			Exercise.create(exercises, function(err, exercises) {
 				if (err) throw err
 				console.log(`Seeded ${exercises.length} exercises.`)

@@ -17,6 +17,22 @@
 6. Start the server with `nodemon` or `node server.js`.
 7. Navigate to `localhost:3000`, and you're good to go!
 
+### API Endpoints
+
+Whetstone includes a large and growing library of methods and exercises. We have included a number of endpoints to make interfacing with our back-end easier. You can use the public API key `123456789` to interact with any endpoint not marked **admin**.
+
+**Methods**
+
+`GET /api/methods/` to see an index of all the methods in our database.
+`GET /api/methods/:id` to see the method with the matching ID.
+
+`POST /api/methods/` to see the method with the matching ID.
+
+**Exercises**
+
+
+**Postman** is a great tool for testing out APIs locally!
+
 ### Technologies Used
 
 Whetstone is a **Node.js** app which uses **express** and **mongoDB**, mediated by **mongoose**. It uses the **ejs** library for dynamic pages and **jQuery** for server-side ajax. 
