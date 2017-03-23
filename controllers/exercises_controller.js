@@ -1,10 +1,5 @@
-var Exercise = require('../models/exercise')
-var Method = require('../models/method')
-
-// Interface paths
-
-// API paths
-
+var Exercise = require('../models/exercise'),
+    Method = require('../models/method')
 
 // INDEX
 function index(req, res) {
@@ -13,7 +8,6 @@ function index(req, res) {
     res.json(exercises)
   })
 }
-
 
 // NEW
 function newExercise(req, res) {

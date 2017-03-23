@@ -24,9 +24,11 @@
         <h2>Completed Exercises</h2>
         <ul>
         <% if (completeCount) {%>
-        <% for (var i = 0; i < completeCount; i++){ %>
-        	<li><%= user.completed_exercises[i] %></li>
-        <% } %>
+            <% for (var i = 0; i < completeCount; i++){ %>
+            	<li><strong> <%= completed_exercises[i].exercise.name %></strong> - 
+                <%= (user.completed_exercises[i].time_completed.getTime() - user.completed_exercises[i].time_started.getTime()) * 0.001 %> seconds
+                </li>
+            <% } %>
         <% } else { %>
         	<li>No completed exercises.</li>
         <% } %>

@@ -6,7 +6,7 @@
 
 	<div class="right">
 <% if (user) { %>
-	<a href="/dashboard">dashboard</a>
+	<a href="/dashboard" data="<%= user.id %>"" id="dashboard-link" >dashboard</a>
 	<a href="/profile">profile</a>
 	<a href="/logout">log out</a>
 <% } else { %>

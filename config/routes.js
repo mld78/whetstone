@@ -13,7 +13,8 @@ var express = require('express'),
 var usersController = require('../controllers/users_controller'),
     methodsController = require('../controllers/methods_controller'),
     exercisesController = require('../controllers/exercises_controller'),
-    staticPagesController = require('../controllers/static_pages_controller')
+    staticPagesController = require('../controllers/static_pages_controller'),
+    completedExercisesController = require('../controllers/completed_exercises_controller')
 
 // Routes helpers
 
@@ -72,8 +73,13 @@ router.route('/dashboard')
 
 router.route('/exercises')
 	// .get(authenticateUser, usersController.exercises)
-	.get(usersController.exercises)
+	.get(authenticateUser, usersController.exercises)
 	.post(usersController.runCode)
+
+router.route('/completed-exercises')
+  .post(completedExercisesController.create)
+
+
 
 router.route('/profile')
   .get(authenticateUser, usersController.showProfile)
@@ -84,8 +90,6 @@ router.route('/profile/edit')
 
 router.route('/profile/delete')
   .post(authenticateUser, usersController.destroyUser)
-
-
 
 // Method Routes
 router.route('/methods')

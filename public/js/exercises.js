@@ -6,7 +6,8 @@
 	 $tests = $('.test'),
 	 $invocations = $('.invocation'),
 	 $expectations = $('.expectation'),
-	 $results = $('.result')
+	 $results = $('.result'),
+	 timeNow = new Date()
 
 // Helpers
 
@@ -76,7 +77,6 @@ $runBtn.on('click', function() {
 $testBtn.on('click', function() {
 	$testBtn.prop('disabled', true)
 	var source = formatForTests($('#input').val())
-	console.log('source',source)
 	$.ajax({
 		type: 'POST',
 		url: '/exercises',
@@ -85,7 +85,6 @@ $testBtn.on('click', function() {
 		}
 	}).then( 
 		function(data){
-			console.log('data', unpackTests(JSON.parse(data).run_status.output))
 			var unpackedData = unpackTests(JSON.parse(data).run_status.output),
 			    passingCount = 0
 			// put the console log part in the output
@@ -95,8 +94,6 @@ $testBtn.on('click', function() {
 				// change the results value
 				$results.eq(i).text(unpackedData[1][i])
 				// check to see if the result matches what was expected
-				console.log('result', $('.result').eq(i).text())
-				console.log('expectation', $('.expectation').eq(i).text())
 				if ($('.result').eq(i).text() === $('.expectation').eq(i).text()) {
 					$tests.eq(i).addClass('passing')
 					passingCount ++
@@ -115,3 +112,25 @@ $testBtn.on('click', function() {
 		}
 	)
 })
+
+$submitBtn.on('click', function(e) {
+	// Stop this event from firing when the button is disabled
+	if (!$submitBtn.prop('disabled')) {
+	var solution = $('#input').val()
+	$.ajax({
+		type: 'POST',
+		url: '/completed-exercises',
+		data: {
+			user_id: $('#dashboard-link').attr('data'),
+			exercise_id: $('#submit').attr('data'),
+			start: timeNow,
+			end: new Date(),
+			solution: solution
+		}, 
+		success: function(){
+			window.location.replace(window.location.protocol + "//" + window.location.host + '/dashboard');
+		}
+	})
+	}
+})
+
