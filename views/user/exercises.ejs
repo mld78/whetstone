@@ -9,10 +9,13 @@
     <div>
         <div id="prompt">
           <h1><%= exercise.name %></h1>
+            <% if (user.local && user.local.isAdmin) { %>
+              <a href="/exercises/<%= exercise.id %>/edit" class="btn btn-default">Edit Exercise</a>
+            <% } %>
           <p><%= exercise.prompt %></p>
         </div>
         <textarea id="input">function <%= exercise.name %>(str){
-  
+
 }</textarea>
         <div id="output"><p></p></div>
         <button class="exercise-btn" id="run">run</button>

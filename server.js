@@ -49,7 +49,9 @@ app.use(function (req, res, next) {
 })
 
 // set up routes
-var routes = require('./config/routes')
+var routes = require('./config/routes'),
+    apiRoutes = require('./config/api_routes')
+app.use('/api/', apiRoutes)
 app.use('/', routes)
 
 // listen on port variable

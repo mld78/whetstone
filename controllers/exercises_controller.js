@@ -28,7 +28,7 @@ function createExercise(req, res) {
   var newExercise = new Exercise(req.body)
   newExercise.save(function(err, savedExercise) {
     if (err) throw err
-    res.json(savedExercise)
+    res.render('./user/dashboard')
   })
 }
 
@@ -37,9 +37,11 @@ function createExercise(req, res) {
 function show(req, res) {
   var id = req.params.id
 
-  Exercise.findById(id, function(err, exercises) {
+  Exercise.findById(id, function(err, exercise) {
     if(err) throw err
-    res.json(exercises)
+    res.render('./user/exercises', {
+      exercise: exercise
+    })
   })
 }
 
@@ -77,9 +79,9 @@ function updateExercise(req, res) {
     if (req.body.prompt) updatedExercise.prompt = req.body.prompt
     if (req.body.tests) updatedExercise.tests = req.body.tests
 
-    updatedExercise.save(function(err, savedExercise) {
+    updatedExercise.save(function(err, exercise) {
       if (err) throw err
-      res.json(savedExercise)
+      res.redirect('/exercises/'+ exercise.id)
     })
   })
 }
