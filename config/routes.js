@@ -1,4 +1,4 @@
-///// PLUMBING /////
+////////// PLUMBING //////////
 
 // Basic setup
 var express = require('express'),
@@ -19,20 +19,20 @@ var usersController = require('../controllers/users_controller'),
 // Routes helpers
 
 function authenticateUser(request, response, next) {
-  // If the user is authenticated, then we continue the execution
+  // If the user is authenticated, then we continue to the next function
   if (request.isAuthenticated()) return next()
-  // Otherwise the request is always redirected to the login page
-  response.redirect('/login')
+  // If not, redirect them to the login page
+  response.redirect('/login', { message: request.flash('Please log in first.') })
 }
 
 function authenticateAdmin(request, response, next) {
-  // Set admin context and others things like admin templates
-  if (request.user.local && request.user.local.isAdmin) return next()
-
-  response.redirect('/dashboard')
+  // If the user is authenticated and has admin access, continue to the next function
+  if (request.isAuthenticated() && (request.user.local && request.user.local.isAdmin)) return next()
+  // If not, redirect them to their dashboard
+  response.redirect('/dashboard', { message: request.flash('You must be an administrator to do that.') })
 };
 
-///// ROUTES /////
+////////// ROUTES //////////
 
 // Root path
 router.get('/', function(request, response){
@@ -99,14 +99,15 @@ router.route('/methods/new')
   .get(authenticateUser,  methodsController.newMethod)
   .post(authenticateUser,  methodsController.createMethod)
 
-router.route('/methods/:id/edit')
+router.route('/methods/:slug_url/edit')
   .get(authenticateUser,  methodsController.editMethod)
   .post(authenticateUser,  methodsController.updateMethod)
 
 router.route('/admin/methods/:id/delete')
-  .post(authenticateUser, authenticateAdmin,  methodsController.destroyMethod)
+  .post(authenticateAdmin,  methodsController.destroyMethod)
 
-router.route('/methods/:id')
+
+router.route('/methods/:slug_url')
   .get(authenticateUser, methodsController.show)
 
 // Exercises routes

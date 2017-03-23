@@ -194,7 +194,8 @@ body {
 }
 
 .form-group {
-  font-weight: bold
+  font-weight: bold;
+	text-align: center
 }
 
 label {
@@ -212,3 +213,12 @@ label {
   padding-top: 50px;
   line-height: 40px;
 }
+
+.button {
+    width: 80px;
+    height: 35px;
+    background: #34373d;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
