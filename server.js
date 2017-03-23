@@ -17,8 +17,8 @@ require('dotenv').config()
 // create express app
 var app = express()
 // set up public directory path and favicon
-app.use(express.static(__dirname + '/public'))
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(express.static(__dirname + '/public'))
 
 // connect to database
 var mongoose = require('./config/database')

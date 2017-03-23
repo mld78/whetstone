@@ -1,16 +1,29 @@
 # Whetstone
 
-> Whetstone is a web application that new and experienced developers can use to hone their skills and expand their programming vocabulary.
+> Whetstone is a web application that new and experienced developers can use to expand their programming vocabulary.
 
 > Built by [Brian](https://github.com/Brian60657), [James](https://github.com/JMEssex), [Gus](https://github.com/gnordhielm), and [Matt](https://github.com/mld78) - the CRUD Studs.
 
 ### Installation
 
-> No app yet, no instructions yet. You'll probably have to `npm install`.
+1. Clone or download this repository to your machine.
+2. Confirm you have `Node.js` installed by running `node -v` (I have `v6.9.4`).
+
+> If you aren't getting a version number, head over to https://nodejs.org/en/download/ and download it.
+
+3. `cd` into the root of your local copy of the app and run `npm install`.
+4. Start the database server with `mongod`.
+5. In a new terminal tab (staying in the root), seed the database with `node config/seeds`
+6. Start the server with `nodemon` or `node server.js`.
+7. Navigate to `localhost:3000`, and you're good to go!
 
 ### Technologies Used
 
-Whetstone is a **Node.js** app which uses **express** and **mongoDB**, mediated by **mongoose**. It will also make use of the **ejs** library and **jQuery**'s ajax methods to make its pages dynamic and connect with the internal API. It will connect with one of two APIs - **HackerEarth** or **programmr** - which will allow Whetstone to evaluate code written by users online. User authentication will be implemented with **passport**, using the **Facebook** OAuth strategy.
+Whetstone is a **Node.js** app which uses **express** and **mongoDB**, mediated by **mongoose**. It uses the **ejs** library for dynamic pages and **jQuery** for server-side ajax. 
+
+Exercise code is evaluated by the **HackerEarth** API, facilitated by the **HackerEarth-node** library. 
+
+User authentication is implemented with **passport** - which is set up to support local authentication and **Facebook** authentication.
 
 ### Process
 
@@ -41,4 +54,16 @@ Here are links to our [user stories](https://trello.com/b/xufvXcpc/crud-studs-wh
 
 ### Next Steps
 
-> Unsolved problems and planned features to come.
+We only had a week to put this project together, so the primary concern wasn't bells and whistles - it was the minimum viable product. However, we believe Whetstone does have a place in the daily routine of a professional programmer. Consider the challenge of learning ES6 or moving from Python 2.7 to Python 3. You don't want a beginner's tutorial, you want to leverage what you already know to achieve proficiency in a new topic. With that goal in mind, there are still a number of **planned features** we'd like to implement:
+
+* Authentication with Google
+* Exercise completion playback (a la **Qualified.io**)
+* More robust logic behind serving exercises
+* More robust storage of a user's proficiencies
+* Lots more exercises
+
+Before we get to all that, we also have a number of **unsolved problems** to attend to:
+
+* 
+
+
