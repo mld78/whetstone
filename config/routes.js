@@ -99,14 +99,15 @@ router.route('/methods/new')
   .get(authenticateUser,  methodsController.newMethod)
   .post(authenticateUser,  methodsController.createMethod)
 
-router.route('/methods/:id/edit')
+router.route('/methods/:slug_url/edit')
   .get(authenticateUser,  methodsController.editMethod)
   .post(authenticateUser,  methodsController.updateMethod)
 
 router.route('/admin/methods/:id/delete')
   .post(authenticateAdmin,  methodsController.destroyMethod)
 
-router.route('/methods/:id')
+
+router.route('/methods/:slug_url')
   .get(authenticateUser, methodsController.show)
 
 // Exercises routes

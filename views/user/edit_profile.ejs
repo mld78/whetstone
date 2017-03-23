@@ -11,7 +11,11 @@
 
       <div class="form-group">
         <label for="title">Title</label>
-        <input class="form-control" type="text" name="title" id="title" placeholder="Ex: Chef" value=<%= user.local.title || user.facebook.title %>>
+        <select name="title" id="title" class="form-control">
+          <option selected="selected">Chef</option>
+          <option>Smith</option>
+          <option>Warrior</option>
+        </select>
       </div>
 
       <div class="form-group">

@@ -15,10 +15,9 @@ function index(req, res) {
 
 // NEW
 function newMethod(req, res) {
-  res.render(`./admin/method_form.ejs`,
-    {
-      message: req.flash(`adminMessage`)
-    })
+  res.render(`./admin/method_form.ejs`, {
+    message: req.flash(`adminMessage`)
+  })
 }
 
 
@@ -34,41 +33,41 @@ function createMethod(req, res) {
 
 // SHOW
 function show(req, res) {
-  var id = req.params.id
-  Exercise.find({}, function(err, exercises){
+  var slug = req.params.slug_url
+  Exercise.find({}, function(err, exercises) {
     if (err) throw err
-
-  Method.findById(id, function(err, method) {
-    if (err) throw err
-    res.render('./user/methods_show.ejs', {
-      exercises: exercises,
-      method: method
+    Method.findOne({slug_url: slug}, function(err, method) {
+      if (err) throw err
+      res.render('./user/methods_show.ejs', {
+        exercises: exercises,
+        method: method
+      })
     })
   })
- })
 }
 
 
 // EDIT
 function editMethod(req, res) {
-  var id = req.params.id
-  Method.findById({_id: id}, function(err, method) {
+  var slug = req.params.slug_url
+  Method.findOne({slug_url: slug}, function(err, method) {
     if (err) throw err
-    res.render(`./admin/edit_method_form.ejs`,
-      {
-        message: req.flash(`adminMessage`),
-        method: method,
-        destroyMethod: destroyMethod
-      })
+    res.render(`./admin/edit_method_form.ejs`, {
+      message: req.flash(`adminMessage`),
+      method: method,
+      destroyMethod: destroyMethod
+    })
   })
 }
 
 
 // UPDATE
 function updateMethod(req, res) {
-  var id = req.params.id
+  var slug = req.params.slug_url
 
-  Method.findById({_id: id}, function(err, updatedMethod) {
+  Method.findOne({
+    slug_url: slug
+  }, function(err, updatedMethod) {
     if (err || !updatedMethod) throw err
 
     if (req.body.name) updatedMethod.name = req.body.name
@@ -79,7 +78,7 @@ function updateMethod(req, res) {
 
     updatedMethod.save(function(err, method) {
       if (err) throw err
-      res.redirect('/methods/'+ method.id)
+      res.redirect(`/methods/${method.slug_url}`)
     })
   })
 }
@@ -91,11 +90,11 @@ function destroyMethod(req, res) {
   // var areYouSure = prompt(`ARE YOU SURE YOU WANT TO DELETE THIS METHOD?\nType: "YES DELETE METHOD"\n\n${req.body}`)
   // if (areYouSure === "YES DELETE METHOD") {
 
-    Method.remove({_id: id}, function(err) {
-      if (err) res.json( {message: `Could not delete Method b/c: ${err}`} )
+  Method.remove({_id: id}, function(err) {
+    if (err) res.json({message: `Could not delete Method b/c: ${err}`})
 
-      res.json({message: 'Method successfully deleted.'});
-    })
+    res.json({message: 'Method successfully deleted.'});
+  })
 
   // }
 }
@@ -122,11 +121,9 @@ function destroyJSON (req, res){
 
 }
 
-
-
 // EXPORTS
 module.exports = {
-	index: index,
+  index: index,
   show: show,
   newMethod: newMethod,
   createMethod: createMethod,
