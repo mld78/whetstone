@@ -10,19 +10,22 @@
     <form method="post" action="/profile/edit">
 
       <div class="form-group">
-        <label for="title">Title</label>
-        <input class="form-control" type="text" name="title" id="title" placeholder="Ex: Chef" value=<%= user.local.title || user.facebook.title %>>
-      </div>
-
+        <label for="title">Title:</label>
+        <select name="title" id="title" class="form-control">
+          <option>Chef</option>
+          <option>Smith</option>
+          <option>Warrior</option>
+        </select>
+      </div><br><br><br>
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">Name:</label>
         <input class="form-control" type="text" name="name" id="name" value="<%= user.local.name || user.facebook.name %>">
-      </div>
+      </div><br>
 
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email:</label>
         <input class="form-control" type="text" name="email" id="email" value=<%= user.local.email || user.facebook.email %>>
-      </div>
+      </div><br><br>
 
       <!-- <div class="form-group">
         <label for="password">Password</label>
@@ -32,7 +35,7 @@
       <input class="btn" type="submit">
     </form>
 
-    <form method="POST" action="/profile/delete">
+    <form method="POST" action="/profile/delete"><br>
       <button class="btn btn-danger"  type="submit" name="destroyUser">
         Delete
       </button>

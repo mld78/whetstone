@@ -194,7 +194,8 @@ body {
 }
 
 .form-group {
-  font-weight: bold
+  font-weight: bold;
+	text-align: center
 }
 
 label {
