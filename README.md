@@ -55,6 +55,7 @@ Whetstone includes a large and growing library of methods and exercises. We have
 
 **Exercises**
 <hr>
+
 `GET /api/exercises/` - see an index of all the exercises in our database.
 
 `GET /api/exercises/:id` - see the exercise with the matching ID.
