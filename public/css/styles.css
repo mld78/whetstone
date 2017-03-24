@@ -92,7 +92,7 @@ button {
 /* Exercises Styles */
 
 .exercises {
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   font-size: 20px;
   color: #34373d;
 }
@@ -126,7 +126,8 @@ button {
   border: none;
   padding: 10px;
   width: 400px;
-  height: 250px;
+  height: 150px;
+	/*adjusted height so bottom right logo stay at bottom*/
   color: #9aa1ac;
   background-color: #34373d;
   font-family: monospace;
@@ -213,12 +214,3 @@ label {
   padding-top: 50px;
   line-height: 40px;
 }
-
-.button {
-    width: 80px;
-    height: 35px;
-    background: #34373d;
-    padding: 5px;
-    text-align: center;
-    color: white;
-    font-weight: bold;
