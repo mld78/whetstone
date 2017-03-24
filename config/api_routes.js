@@ -38,7 +38,9 @@ router.route('/methods')
 router.route('/methods/:id')
   .get(methods.showJSON)
   .patch(checkAdminKey, methods.updateJSON)
-  .delete(checkAdminKey, methods.destroyJSON)
+
+router.route('/methods-delete/:id')
+  .post(checkAdminKey, methods.destroyJSON)
 
 // Exercise CRUD
 router.route('/exercises')
@@ -47,8 +49,10 @@ router.route('/exercises')
 
 router.route('/exercises/:id')
   .get(exercises.showJSON)
-  .patch(checkStandardKey, exercises.updateJSON)
-  .delete(checkAdminKey, exercises.destroyJSON)
+  .patch(checkAdminKey, exercises.updateJSON)
+
+router.route('/exercises-delete/:id')
+  .post(checkAdminKey, exercises.destroyJSON)
 
 
 module.exports = router

@@ -84,8 +84,6 @@ function updateMethod(req, res) {
 function destroyMethod(req, res) {
 
   var slug = req.params.slug_url
-  // var areYouSure = prompt(`ARE YOU SURE YOU WANT TO DELETE THIS METHOD?\nType: "YES DELETE METHOD"\n\n${req.body}`)
-  // if (areYouSure === "YES DELETE METHOD") {
 
   Method.remove({slug_url: slug}, function(err) {
 
@@ -144,6 +142,7 @@ function updateJSON(req, res) {
 }
 
 function destroyJSON (req, res){
+  if (String(req.delete) === 'false') res.json({message: 'Delete key was set to false.'})
   Method.remove({_id: req.params.id}, function(err) {
     if (err) res.json({message: 'Unable to delete method.'})
     res.json({message: 'Method deleted.'})

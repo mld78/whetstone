@@ -41,7 +41,14 @@ Whetstone includes a large and growing library of methods and exercises. We have
 ```
 
 **admin** `PATCH /api/methods/:id` - update the method with the matching ID with patch data - it can include one or many of the fields specified above.
-**admin** `DELETE /api/methods/:id` - delete the method with the matching ID.
+**admin** `POST /api/methods-delete/:id` - delete the method with the matching ID. Format your post data like this:
+
+```js
+{   
+    client_key: '*****',
+    delete: true
+}
+```
 
 **Exercises**
 <hr>
@@ -52,7 +59,7 @@ Whetstone includes a large and growing library of methods and exercises. We have
 
 ```js
 {   
-    client_key: '*****', // this key would not actually work, you'd need the administrator key.
+    client_key: '*****',
     name: 'hello',
     method: 'JS-fundamentals',
     difficulty: 1,
@@ -73,7 +80,14 @@ Whetstone includes a large and growing library of methods and exercises. We have
 ```
 
 **admin** `PATCH /api/exercises/:id` - update the exercise with the matching ID with patch data - it can include one or many of the fields specified above.
-**admin** `DELETE /api/exercises/:id` - delete the exercise with the matching ID.
+**admin** `POST /api/exercises-delete/:id` - delete the exercise with the matching ID, format your post data like this:
+
+```js
+{   
+    client_key: '*****',
+    delete: true
+}
+```
 
 > **Postman** is a great tool for testing APIs out locally! If you're having trouble posting complex data (we certainly did), try posting embedded arrays/objects as a series of keys and values. So the first embedded object above would become: 
 > `tests[0][explanation]: 'Test without name.'`
