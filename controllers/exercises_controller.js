@@ -1,5 +1,6 @@
 var Exercise = require('../models/exercise'),
-    Method = require('../models/method')
+    Method = require('../models/method'),
+    Test = require('../models/test')
 
 // INDEX
 function index(req, res) {
@@ -26,9 +27,10 @@ function newExercise(req, res) {
 // CREATE
 function createExercise(req, res) {
   var newExercise = new Exercise(req.body)
-  newExercise.save(function(err, savedExercise) {
+  console.log(req.body)
+  newExercise.save(function(err, exercise) {
     if (err) throw err
-    res.render('./user/dashboard')
+    res.redirect('/dashboard')
   })
 }
 

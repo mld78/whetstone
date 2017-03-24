@@ -80,23 +80,48 @@ var exercises = [
 			expectation: 'Hello, fasdfa124isbi45.'
 		},
 	]
+},
+{	name: 'reverseString',
+	// enter the method name, the seeds file will take care of finding the id
+	method: fixedMethod.id,
+	difficulty: 1,
+	prompt: 'Complete the solution so that it reverses the string value passed into it.',
+	tests: [
+		{
+			explanation: 'Test with short word',
+			invocation: "reverseString('bat')",
+			expectation: 'tab'
+		},
+		{
+			explanation: 'Test with medium word.',
+			invocation: "reverseString('Crazy')",
+			expectation: 'yzarC'
+		},
+		{
+			explanation: 'Test with longer word.',
+			invocation: "reverseString('Hippopotamus')",
+			expectation: 'sumatopoppiH'
+		}
+
+	]
 }
 ]
 
 Exercise.remove({}, function(err) {
-	if (err) throw err
-	console.log('Cleared exercises.')
-	Method.remove({}, function(err) {
-		if (err) throw err
-		console.log('Cleared methods.')
-		Method.create(methods, function(err, methods) {
-			if (err) throw err
-			fixedMethod.save()
-			console.log(`Seeded ${methods.length + 1} methods.`)
-			Exercise.create(exercises, function(err, exercises) {
-				if (err) throw err
-				console.log(`Seeded ${exercises.length} exercises.`)
-		// Close connection and exit
-				mongoose.connection.close()
-				process.exit()
+    if (err) throw err
+    console.log('Cleared exercises.')
+    Method.remove({}, function(err) {
+        if (err) throw err
+        console.log('Cleared methods.')
+        Method.create(methods, function(err, methods) {
+            if (err) throw err
+            fixedMethod.save()
+            console.log(`Seeded ${methods.length + 1} methods.`)
+            Exercise.create(exercises, function(err, exercises) {
+                if (err) throw err
+                console.log(`Seeded ${exercises.length} exercises.`)
+        // Close connection and exit
+                mongoose.connection.close()
+                process.exit()
+
 })})})})

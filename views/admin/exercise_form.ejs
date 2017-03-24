@@ -7,7 +7,7 @@
   <body>
     <%- include(`../partials/header`, {page: `new exercise`}) %>
 
-    <form method="post" action="/admin/exercises/new">
+    <form method="post" action="/exercises/new">
 
       <div class="form-group">
         <label for="name">Exercise Name</label>
@@ -35,8 +35,21 @@
         <textarea class="form-control" name="prompt" rows="3" cols="80" id="prompt" placeholder="Add description here..." ></textarea>
       </div>
 
+      <div class="form-group" id='test'>
+        <label for="tests">Test</label>
+        <input class="form-control" type="text" name="tests[0][explanation]" id="test" placeholder="Ex: Reverse the string"><br>
+        <input class="form-control" type="text" name="tests[0].[invocation]" id="test" placeholder="Ex: test('Rob')"><br>
+        <input class="form-control" type="text" name="tests[0].[expectation]" id="test" placeholder="Ex: test('boR')">
+      </div>
+
+      <input type="button" value="Add another test" onClick="addInput('test')">
+
+      <br>
+
       <input class="btn" type="submit">
     </form>
 
+
+    <script src="/js/exercise_form.js"> </script>
   </body>
 </html>

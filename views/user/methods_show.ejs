@@ -30,7 +30,9 @@
 
       <!-- Buttons to edit and delete -->
         <% if (user.local && user.local.isAdmin) { %>
-      <a href="/methods/<%= method.slug_url %>/edit" class="exercise-btn">edit method</a>
+
+      <a href="/methods/<%= method.slug_url %>/edit" class="exercise-btn">Edit method</a>
+
         <% } %>
 
 
@@ -48,7 +50,8 @@
           </ul>
         </article>
       </div>
-      </div>
 
+
+      </div>
   </body>
 </html>
