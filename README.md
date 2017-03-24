@@ -149,5 +149,6 @@ Before we get to all that, we also have a number of **unsolved problems** to att
 * A better evaluation solution, once we run 1000 evaluations the API will block our requests.
 * Recurrent errors in our .ejs files - which disappear magically with apparently no changes.
 * Our sessions implementation (`connect.session()`) isn't ideal for production and is not scalable.
+* Sometimes our tests light up green even when they are failing - this has to to with our generally unweildy tests implementation.
 
 
