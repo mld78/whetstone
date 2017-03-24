@@ -37,7 +37,9 @@
 
       <div class="form-group" id='test'>
         <label for="tests">Test</label>
-        <input class="form-control" type="text" name="tests" id="test" placeholder="functionName('test')">
+        <input class="form-control" type="text" name="tests.explanation" id="test" placeholder="Ex: Reverse the string"><br>
+        <input class="form-control" type="text" name="tests.invocation" id="test" placeholder="Ex: test('Rob')"><br>
+        <input class="form-control" type="text" name="tests.expectation" id="test" placeholder="Ex: test('boR')">
       </div>
 
       <input type="button" value="Add another test" onClick="addInput('test')">

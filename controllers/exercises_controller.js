@@ -1,5 +1,6 @@
 var Exercise = require('../models/exercise'),
-    Method = require('../models/method')
+    Method = require('../models/method'),
+    Test = require('../models/test')
 
 // INDEX
 function index(req, res) {

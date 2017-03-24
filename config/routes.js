@@ -112,7 +112,7 @@ router.route('/methods/:slug_url')
 
 // Exercises routes
 
-router.route('/exercises')
+router.route('/admin/exercises')
 	.get(authenticateUser, exercisesController.index)
 
 
