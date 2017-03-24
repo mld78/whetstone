@@ -1,6 +1,4 @@
-////////// PLUMBING //////////
 
-// Basic setup
 var express = require('express'),
     router = express.Router(),
 // Parses information from POST
@@ -22,7 +20,7 @@ function authenticateUser(request, response, next) {
   // If the user is authenticated, then we continue to the next function
   if (request.isAuthenticated()) return next()
   // If not, redirect them to the login page
-  response.redirect('/login', { message: request.flash('Please log in first.') })
+  response.redirect({ message: request.flash('Please log in first.') }, '/')
 }
 
 function authenticateAdmin(request, response, next) {
@@ -103,7 +101,7 @@ router.route('/methods/:slug_url/edit')
   .get(authenticateUser,  methodsController.editMethod)
   .post(authenticateUser,  methodsController.updateMethod)
 
-router.route('/admin/methods/:id/delete')
+router.route('/methods/:slug_url/delete')
   .post(authenticateAdmin,  methodsController.destroyMethod)
 
 
@@ -129,7 +127,5 @@ router.route('/exercises/:id')
 
 router.route('/exercises/:id/delete')
   .post(authenticateUser, exercisesController.destroyExercise)
-
-
 
 module.exports = router
