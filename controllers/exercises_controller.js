@@ -98,7 +98,7 @@ function destroyExercise(req, res) {
     Exercise.remove({_id: id}, function(err) {
       if (err) res.json( {message: `Could not delete Exercise b/c: ${err}`} )
 
-      res.json({message: 'Exercise successfully deleted.'});
+      res.redirect('/dashboard')
     })
 
   // }

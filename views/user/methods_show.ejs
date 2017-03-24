@@ -8,7 +8,7 @@
     <%- include(`../partials/header`) %>
 
   <div class="profile-container">
-      <h1> Here is the information and the exercises for <%= method.name %> </h1>
+      <h1>Information and the exercises for <%= method.name %> </h1>
 
       <p><b>Language:</b>
           <%= method.language %>
@@ -26,9 +26,11 @@
           <%= method.description %>
       </p>
 
+      <% if (method.docs_url){ %>
       <p><b>More Documentation:</b>
         <a href= <%= method.docs_url %>> <%= method.docs_url %></a>
       </p>
+      <% } %>
 
       <br>
       <br>

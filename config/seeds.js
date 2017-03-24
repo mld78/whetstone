@@ -31,7 +31,6 @@ var fixedMethod = new Method({
 	language: 'JavaScript',
 	version_added: 'none',
 	description: 'Exercises associated with this method are not specific to any method - just JavaScript fundamentals.',
-	docs_url: 'none',
 	slug_url: 'JS-fundamentals'
 })
 
@@ -108,15 +107,6 @@ var exercises = [
 }
 ]
 
-// built-in admin user
-var admin = new User({
-	title: "Grand Chef",
-	name: "Administrator",
-	email: "admin@gmail.com",
-	password: '$2a$08$RwreaBAz9UIm22FNJ33LBO3vJRGO.5GmBCuMQlfr2Da0yDwK.Lldy',
-	isAdmin: true
-})
-
 
 Exercise.remove({}, function(err) {
     if (err) throw err
@@ -127,7 +117,6 @@ Exercise.remove({}, function(err) {
         Method.create(methods, function(err, methods) {
             if (err) throw err
             fixedMethod.save()
-            admin.save()
             console.log(`Seeded ${methods.length + 1} methods.`)
             Exercise.create(exercises, function(err, exercises) {
                 if (err) throw err

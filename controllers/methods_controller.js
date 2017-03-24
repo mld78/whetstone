@@ -89,7 +89,7 @@ function destroyMethod(req, res) {
 
     if (err) res.json({message: `Could not delete Method b/c: ${err}`})
 
-    res.json({message: 'Method successfully deleted.'});
+    res.redirect('/dashboard')
   })
 }
 
