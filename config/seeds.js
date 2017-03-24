@@ -26,12 +26,12 @@ var methods = [{
 ]
 
 var fixedMethod = new Method({
-	name: 'charCodeAt',
+	name: 'fundamentals',
 	language: 'JavaScript',
-	version_added: 'JavaScript 1.2',
-	description: 'This method can be applied to any string and takes an index for an argument. It returns the UTF-16 code of the character at that index.',
-	docs_url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt',
-	slug_url: 'String-charCodeAt'
+	version_added: 'none',
+	description: 'Exercises associated with this method are not specific to any method - just JavaScript fundamentals.',
+	docs_url: 'none',
+	slug_url: 'JS-fundamentals'
 })
 
 var exercises = [
