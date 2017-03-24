@@ -153,37 +153,54 @@ function updateJSON(req, res) {
     if (err || !exerciseToUpdate) res.json({message: 'Could not find exercise.'})
 
     // If the request is going to change the method, find the method first
-    if (req.params.method) {
-      Method.find({slug_url: req.body.method}, function(err, method){
-        if (err) res.json({message: 'Could not find new method.', error: err})
-          exerciseToUpdate.method = method.id
+    if (req.body.method) {
+      Method.findOne({slug_url: req.body.method}, function(err, method){
+        if (err || !method) {
+          res.json({message: 'Could not find new method.', error: err})
+        } else {
+
+          exerciseToUpdate.method = method._id
+
+          // update everything else, if it's specified
+          if (req.body.name) exerciseToUpdate.name = req.body.name
+          if (req.body.difficulty) exerciseToUpdate.difficulty = req.body.difficulty
+          if (req.body.prompt) exerciseToUpdate.prompt = req.body.prompt
+          if (req.body.tests) exerciseToUpdate.tests = req.body.tests
+
+          exerciseToUpdate.save(function(err, exercise) {
+            if (err) res.json({message: 'Could not update exercise.', error: err})
+            res.json(exercise)
+          })
+        }
+      })
+    } else {
+
+      if (req.body.name) exerciseToUpdate.name = req.body.name
+      if (req.body.difficulty) exerciseToUpdate.difficulty = req.body.difficulty
+      if (req.body.prompt) exerciseToUpdate.prompt = req.body.prompt
+
+      // NOTE: If there are tests in the request, ALL of the current tests 
+      // will be written over with the new tests.
+      if (req.body.tests) exerciseToUpdate.tests = req.body.tests
+
+      exerciseToUpdate.save(function(err, exercise) {
+        if (err) res.json({message: 'Could not update exercise.', error: err})
+        res.json(exercise)
       })
     }
+  })
+}
 
-    // Regardless, check all of the other fields
-    if (req.body.name) exerciseToUpdate.name = req.body.name
-    if (req.body.difficulty) exerciseToUpdate.difficulty = req.body.difficulty
-    if (req.body.prompt) exerciseToUpdate.prompt = req.body.prompt
-
-    exerciseToUpdate.save(function(err, exercise) {
-      if (err) res.json({message: 'Could not update exercise.', error: err})
-      res.json(exercise)
-    })
+function destroyJSON (req, res){
+  if (String(req.delete) === 'false') res.json({message: 'Delete key was set to false.'})
+  Exercise.remove({_id: req.params.id}, function(err) {
+    if (err) res.json({message: 'Unable to delete exercise.'})
+    res.json({message: 'Exercise deleted.'})
   })
 }
 
 
-function destroyJSON (req, res){
-  res.json({message: 'hi'})
-}
 
-
-// function destroyJSON (req, res){
-//   Method.remove({_id: req.params.id}, function(err) {
-//     if (err) res.json({message: 'Unable to delete method.'})
-//     res.json({message: 'Method deleted.'})
-//   })
-// }
 
 // EXPORTS
 module.exports = {
