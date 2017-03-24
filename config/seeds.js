@@ -5,6 +5,7 @@ require('dotenv').config()
 var mongoose = require('./database'),
 	Test = require('../models/test'),
 	Exercise = require('../models/exercise'),
+	User = require('../models/user'),
 	Method = require('../models/method')
 
 var methods = [{
@@ -108,13 +109,13 @@ var exercises = [
 ]
 
 // built-in admin user
-var admin = {
+var admin = new User({
 	title: "Grand Chef",
 	name: "Administrator",
 	email: "admin@gmail.com",
 	password: '$2a$08$RwreaBAz9UIm22FNJ33LBO3vJRGO.5GmBCuMQlfr2Da0yDwK.Lldy',
 	isAdmin: true
-}
+})
 
 
 Exercise.remove({}, function(err) {
