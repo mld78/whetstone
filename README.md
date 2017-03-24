@@ -23,7 +23,9 @@ Whetstone includes a large and growing library of methods and exercises. We have
 
 **Methods**
 <hr>
+
 `GET /api/methods/` - see an index of all the methods in our database.
+
 `GET /api/methods/:id` - see the method with the matching ID.
 
 `POST /api/methods/` - create a new method, format post data like this:
@@ -41,6 +43,7 @@ Whetstone includes a large and growing library of methods and exercises. We have
 ```
 
 **admin** `PATCH /api/methods/:id` - update the method with the matching ID with patch data - it can include one or many of the fields specified above.
+
 **admin** `POST /api/methods-delete/:id` - delete the method with the matching ID. Format your post data like this:
 
 ```js
@@ -53,6 +56,7 @@ Whetstone includes a large and growing library of methods and exercises. We have
 **Exercises**
 <hr>
 `GET /api/exercises/` - see an index of all the exercises in our database.
+
 `GET /api/exercises/:id` - see the exercise with the matching ID.
 
 **admin** `POST /api/exercises/` - create a new exercise, format post data like this:
@@ -80,6 +84,7 @@ Whetstone includes a large and growing library of methods and exercises. We have
 ```
 
 **admin** `PATCH /api/exercises/:id` - update the exercise with the matching ID with patch data - it can include one or many of the fields specified above.
+
 **admin** `POST /api/exercises-delete/:id` - delete the exercise with the matching ID, format your post data like this:
 
 ```js
