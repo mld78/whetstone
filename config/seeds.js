@@ -107,6 +107,16 @@ var exercises = [
 }
 ]
 
+// built-in admin user
+var admin = {
+	title: "Grand Chef",
+	name: "Administrator",
+	email: "admin@gmail.com",
+	password: '$2a$08$RwreaBAz9UIm22FNJ33LBO3vJRGO.5GmBCuMQlfr2Da0yDwK.Lldy',
+	isAdmin: true
+}
+
+
 Exercise.remove({}, function(err) {
     if (err) throw err
     console.log('Cleared exercises.')
@@ -116,6 +126,7 @@ Exercise.remove({}, function(err) {
         Method.create(methods, function(err, methods) {
             if (err) throw err
             fixedMethod.save()
+            admin.save()
             console.log(`Seeded ${methods.length + 1} methods.`)
             Exercise.create(exercises, function(err, exercises) {
                 if (err) throw err
