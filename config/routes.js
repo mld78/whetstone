@@ -19,14 +19,14 @@ function authenticateUser(request, response, next) {
   // If the user is authenticated, then we continue to the next function
   if (request.isAuthenticated()) return next()
   // If not, redirect them to the login page
-  response.redirect({ message: request.flash('Please log in first.') }, '/')
+  response.redirect('/')
 }
 
 function authenticateAdmin(request, response, next) {
   // If the user is authenticated and has admin access, continue to the next function
   if (request.isAuthenticated() && (request.user.local && request.user.local.isAdmin)) return next()
   // If not, redirect them to their dashboard
-  response.redirect('/dashboard', { message: request.flash('You must be an administrator to do that.') })
+  response.redirect('/dashboard')
 };
 
 ////////// ROUTES //////////
