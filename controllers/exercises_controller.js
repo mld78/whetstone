@@ -126,53 +126,62 @@ function showJSON (req, res){
 }
 
 function createJSON (req, res){
-  Method.findOne({slug_url: req.body.slug_url}, function(err, method){
+  console.log('body', req.body)
+  Method.find({slug_url: req.body.method}, function(err, method){
+    if (err || !method) res.json({message: 'Could not find method.'})
+    
     var newExercise = new Exercise(req.body)
+    newExercise.method = method.id
     newExercise.save(function(err, exercise) {
       if (err || !exercise) {
-        res.json({message: 'Could not create exercise.'})
-      } else{
+        res.json({message: 'Could not create exercise.', error: err})
+      } else {
         res.json(exercise)
       }
     })
   })
 }
 
-
 // function updateJSON (req, res){
 //   res.json({message: 'hi'})
 // }
 
-// function destroyJSON (req, res){
-//   res.json({message: 'hi'})
-// }
-
-
-
 function updateJSON(req, res) {
-  Method.findById(req.params.id, function(err, updatedMethod) {
-    if (err || !updatedMethod) res.json({message: 'No such method.'})
+  Exercise.findById(req.params.id, function(err, exerciseToUpdate) {
+    if (err || !exerciseToUpdate) res.json({message: 'Could not find exercise.'})
 
-    if (req.body.name) updatedMethod.name = req.body.name
-    if (req.body.language) updatedMethod.language = req.body.language
-    if (req.body.description) updatedMethod.description = req.body.description
-    if (req.body.version_added) updatedMethod.version_added = req.body.version_added
-    if (req.body.docs_url) updatedMethod.docs_url = req.body.docs_url
-    if (req.body.slug_url) updatedMethod.slug_url = req.body.slug_url
+    // If the request is going to change the method, find the method first
+    if (req.params.method) {
+      Method.find({slug_url: req.body.method}, function(err, method){
+        if (err) res.json({message: 'Could not find new method.', error: err})
+          exerciseToUpdate.method = method.id
+      })
+    }
 
-    updatedMethod.save(function(err, method) {
-      if (err) res.json({message: 'Update method failed.'})
-      res.json(method)
+    // Regardless, check all of the other fields
+    if (req.body.name) exerciseToUpdate.name = req.body.name
+    if (req.body.difficulty) exerciseToUpdate.difficulty = req.body.difficulty
+    if (req.body.prompt) exerciseToUpdate.prompt = req.body.prompt
+
+    exerciseToUpdate.save(function(err, exercise) {
+      if (err) res.json({message: 'Could not update exercise.', error: err})
+      res.json(exercise)
     })
   })
 }
 
+
 function destroyJSON (req, res){
-  Method.remove({_id: req.params.id}, function(err) {
-    if (err) res.json({message: 'Unable to delete method.'})
-    res.json({message: 'Method deleted.'})
-  })
+  res.json({message: 'hi'})
 }
+
+
+// function destroyJSON (req, res){
+//   Method.remove({_id: req.params.id}, function(err) {
+//     if (err) res.json({message: 'Unable to delete method.'})
+//     res.json({message: 'Method deleted.'})
+//   })
+// }
 
 // EXPORTS
 module.exports = {

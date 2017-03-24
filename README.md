@@ -75,7 +75,10 @@ Whetstone includes a large and growing library of methods and exercises. We have
 **admin** `PATCH /api/exercises/:id` - update the exercise with the matching ID with patch data - it can include one or many of the fields specified above.
 **admin** `DELETE /api/exercises/:id` - delete the exercise with the matching ID.
 
-> **Postman** is a great tool for testing APIs out locally!
+> **Postman** is a great tool for testing APIs out locally! If you're having trouble posting complex data (we certainly did), try posting embedded arrays/objects as a series of keys and values. So the first embedded object above would become: 
+> `tests[0][explanation]: 'Test without name.'`
+> `tests[0][invocation]: 'hello('Bob')'`
+> `tests[0][expectation]: 'Hello, Bob.'`
 
 ### Technologies Used
 
