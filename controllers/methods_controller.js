@@ -1,3 +1,4 @@
+
 var Method = require('../models/method'),
     Exercise = require('../models/exercise')
 
