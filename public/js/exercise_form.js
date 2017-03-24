@@ -6,7 +6,7 @@ function addInput(divName){
      }
      else {
           var newdiv = document.createElement('div');
-          newdiv.innerHTML = "<br>"+ "Test " + (counter + 1) + "<input class='form-control' type='text' name='tests.explanation' id='test'>" +"<br>"+ "<input class='form-control' type='text' name='tests.invocation' id='test'>" +"<br>"+ "<input class='form-control' type='text' name='tests.expectation' id='test'>";
+          newdiv.innerHTML = "<br>"+ "Test " + (counter + 1) + `<input class='form-control' type='text' name='tests[${counter}][explanation]' id='test'>` +"<br>"+ `<input class='form-control' type='text' name='tests[${counter}][invocation]' id='test'>` +"<br>"+ `<input class='form-control' type='text' name='tests[${counter}][expectation]' id='test'>`;
           document.getElementById(divName).appendChild(newdiv);
           counter++;
      }
