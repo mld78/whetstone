@@ -1,6 +1,4 @@
-////////// PLUMBING //////////
 
-// Basic setup
 var express = require('express'),
     router = express.Router(),
 // Parses information from POST
@@ -129,7 +127,5 @@ router.route('/exercises/:id')
 
 router.route('/exercises/:id/delete')
   .post(authenticateUser, exercisesController.destroyExercise)
-
-
 
 module.exports = router

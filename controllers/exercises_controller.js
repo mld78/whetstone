@@ -104,13 +104,91 @@ function destroyExercise(req, res) {
   // }
 }
 
+////////// API ACTIONS //////////
+
+function indexJSON (req, res){  
+  Exercise.find({})
+          .populate('method') 
+          .exec(function(err, exercises) {
+            if (err) throw err
+            res.json(exercises)
+  })
+}
+
+function showJSON (req, res){  
+  Exercise.findById(req.params.id)
+          .populate('method') 
+          .exec(function(err, exercise) {
+            if (err || !exercise) {
+              res.json({message: 'No such exercise.'})
+            } else {
+            res.json(exercise)
+            }
+  })
+}
+
+function createJSON (req, res){
+  Method.findOne({slug_url: req.body.slug_url}, function(err, method){
+    var newExercise = new Exercise(req.body)
+    newExercise.save(function(err, exercise) {
+      if (err || !exercise) {
+        res.json({message: 'Could not create exercise.'})
+      } else{
+        res.json(exercise)
+      }
+    })
+  })
+}
+
+
+// function updateJSON (req, res){
+//   res.json({message: 'hi'})
+// }
+
+// function destroyJSON (req, res){
+//   res.json({message: 'hi'})
+// }
+
+
+
+function updateJSON(req, res) {
+  Method.findById(req.params.id, function(err, updatedMethod) {
+    if (err || !updatedMethod) res.json({message: 'No such method.'})
+
+    if (req.body.name) updatedMethod.name = req.body.name
+    if (req.body.language) updatedMethod.language = req.body.language
+    if (req.body.description) updatedMethod.description = req.body.description
+    if (req.body.version_added) updatedMethod.version_added = req.body.version_added
+    if (req.body.docs_url) updatedMethod.docs_url = req.body.docs_url
+    if (req.body.slug_url) updatedMethod.slug_url = req.body.slug_url
+
+    updatedMethod.save(function(err, method) {
+      if (err) res.json({message: 'Update method failed.'})
+      res.json(method)
+    })
+  })
+}
+
+function destroyJSON (req, res){
+  Method.remove({_id: req.params.id}, function(err) {
+    if (err) res.json({message: 'Unable to delete method.'})
+    res.json({message: 'Method deleted.'})
+  })
+}
+
 // EXPORTS
 module.exports = {
- index: index,
- show: show,
- newExercise: newExercise,
- createExercise: createExercise,
- editExercise: editExercise,
- updateExercise: updateExercise,
- destroyExercise: destroyExercise
+  index: index,
+  show: show,
+  newExercise: newExercise,
+  createExercise: createExercise,
+  editExercise: editExercise,
+  updateExercise: updateExercise,
+  destroyExercise: destroyExercise,
+
+  indexJSON: indexJSON,  
+  showJSON: showJSON,  
+  createJSON: createJSON,  
+  updateJSON: updateJSON,  
+  destroyJSON: destroyJSON
 }
