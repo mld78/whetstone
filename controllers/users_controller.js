@@ -51,7 +51,7 @@ function getFacebook(request, response, next) {
 
 function getFacebookCallback(request, response, next) {
   var loginProperty = passport.authenticate('facebook', {
-    successRedirect : '/',
+    successRedirect : '/dashboard',
     failureRedirect : './static_pages/login'
   })
   return loginProperty(request, response, next)

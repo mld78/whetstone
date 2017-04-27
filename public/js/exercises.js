@@ -44,7 +44,7 @@ function unpackTests(JSON){
 
 // Tab in textarea
 
-$(document).delegate('#input', 'keydown', function(e) {
+$(document).delegate('#input', 'keydown', function() {
   if(event.keyCode===9){
   	var v = this.value,
   	    s = this.selectionStart,
@@ -66,7 +66,7 @@ $runBtn.on('click', function() {
 		data: {
 			source: source
 		}
-	}).then( 
+	}).then(
 		function(data){
 			$output.html(JSON.parse(data).run_status.output_html)
 			$runBtn.prop('disabled', false)
@@ -83,7 +83,7 @@ $testBtn.on('click', function() {
 		data: {
 			source: source
 		}
-	}).then( 
+	}).then(
 		function(data){
 			var unpackedData = unpackTests(JSON.parse(data).run_status.output),
 			    passingCount = 0
@@ -126,11 +126,10 @@ $submitBtn.on('click', function(e) {
 			start: timeNow,
 			end: new Date(),
 			solution: solution
-		}, 
+		},
 		success: function(){
 			window.location.replace(window.location.protocol + "//" + window.location.host + '/dashboard');
 		}
 	})
 	}
 })
-
